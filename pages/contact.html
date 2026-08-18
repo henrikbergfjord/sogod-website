@@ -1,41 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact | Sogod</title>
-  <link rel="stylesheet" href="../assets/css/styles.css" />
-</head>
-<body>
-<header class="site-header">
-  <div class="wrap nav-wrap">
-    <a class="brand" href="../index.html">Sogod</a>
-    <nav><a href="../index.html">Home</a></nav>
-    <div class="lang-switch"><button data-lang="en" class="active">EN</button><button data-lang="tl">TL</button></div>
-  </div>
-</header>
-<main>
-  <section class="section contact-hero">
-    <div class="wrap contact-grid">
-      <div>
-        <span class="section-kicker" data-en="Contact" data-tl="Makipag-ugnayan">Contact</span>
-        <h1 data-en="Send a message" data-tl="Magpadala ng mensahe">Send a message</h1>
-        <p data-en="Fill out the form below. When you press send, your email application opens with the message prepared for Henrik Bergfjord." data-tl="Punan ang form sa ibaba. Kapag pinindot mo ang send, bubukas ang email application na may nakahandang mensahe para kay Henrik Bergfjord.">Fill out the form below. When you press send, your email application opens with the message prepared for Henrik Bergfjord.</p>
-        <p><strong>Email:</strong> <a href="mailto:henrik.bergfjord@outlook.com">henrik.bergfjord@outlook.com</a></p>
-      </div>
-      <form id="contactForm" class="contact-form">
-        <label><span data-en="Name" data-tl="Pangalan">Name</span><input id="name" name="name" required></label>
-        <label><span data-en="Email" data-tl="Email">Email</span><input id="email" name="email" type="email" required></label>
-        <label><span data-en="Subject" data-tl="Paksa">Subject</span><input id="subject" name="subject" required></label>
-        <label><span data-en="Message" data-tl="Mensahe">Message</span><textarea id="message" name="message" rows="7" required></textarea></label>
-        <button class="btn primary" type="submit" data-en="Prepare email" data-tl="Ihanda ang email">Prepare email</button>
-        <p class="form-note" data-en="Static websites cannot send email securely by themselves. This form uses your device's email app. Later you can connect Formspree, Azure Functions or another form service for direct delivery." data-tl="Hindi direktang makakapagpadala ng secure email ang static website. Ginagamit ng form na ito ang email app ng iyong device. Maaari itong ikonekta sa Formspree, Azure Functions o ibang form service sa hinaharap para sa direktang pagpapadala.">Static websites cannot send email securely by themselves. This form uses your device's email app. Later you can connect Formspree, Azure Functions or another form service for direct delivery.</p>
-      </form>
-    </div>
-  </section>
-</main>
-<footer class="site-footer"><div class="wrap footer-wrap"><span>© <span id="year"></span> Sogod</span><span data-en="Created and developed by Henrik Bergfjord" data-tl="Ginawa at binuo ni Henrik Bergfjord">Created and developed by Henrik Bergfjord</span></div></footer>
-<script src="../assets/js/main.js"></script>
-<script src="../assets/js/contact.js"></script>
-</body>
-</html>
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Contact — Sogod Stay</title><link rel="stylesheet" href="../assets/css/styles.css"></head><body class="inner-page">
+<header class="site-header"><a class="brand" href="../index.html">SOGOD STAY<span>Experience the Real Philippines</span></a><nav><a href="../index.html">Home</a><a href="booking.html">Plan your stay</a></nav></header>
+<main class="form-wrap"><div class="form-intro"><p class="eyebrow">GET IN TOUCH</p><h1>Curious about Albay, its culture and its people?</h1><p>If you are interested in getting closer to a culture that has a way of becoming more and more lovable the longer you stay, write to us. Tell us what brings you to the Philippines and what you hope to discover.</p></div>
+<form id="contactForm" class="booking-form"><div class="grid two"><label>Name<input name="name" required></label><label>Email<input type="email" name="email" required></label></div><label>Subject<input name="subject"></label><label>Your message<textarea name="message" rows="8" required></textarea></label><button class="btn primary" type="submit">Prepare email</button><p class="form-note">Your email app will open with the message addressed to henrik.bergfjord@outlook.com.</p></form></main><footer><div>Created & developed by Henrik Bergfjord</div></footer><script src="../assets/js/forms.js"></script></body></html>
