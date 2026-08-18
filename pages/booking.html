@@ -1,15 +1,265 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Plan your stay — Sogod Stay</title><link rel="stylesheet" href="../assets/css/styles.css"></head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Plan your stay — Sogod Stay</title>
+
+    <meta
+        name="description"
+        content="Plan your stay at Sogod Stay in Albay, Philippines. Tell us about your trip, airport pickup, scooter rental, local transport, day trips, overnight excursions and cultural experiences."
+    >
+
+    <link rel="stylesheet" href="../assets/css/styles.css">
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);
+            t.async=1;
+            t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];
+            y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "y4c5fg1ysl");
+    </script>
+</head>
+
 <body class="inner-page">
-<header class="site-header"><a class="brand" href="../index.html">SOGOD STAY<span>Experience the Real Philippines</span></a><nav><a href="../index.html">Home</a><a href="contact.html">Contact</a></nav></header>
-<main class="form-wrap"><div class="form-intro"><p class="eyebrow">PLAN YOUR STAY</p><h1>Tell us about your trip.</h1><p>There is no fixed package. Tell us who you are, what you want to experience and how much help you would like. We will use your answers to shape a personal proposal.</p></div>
-<form id="bookingForm" class="booking-form">
-<div class="grid two"><label>Full name<input name="name" required></label><label>Email<input type="email" name="email" required></label></div>
-<div class="grid two"><label>Country<input name="country"></label><label>Phone / WhatsApp<input name="phone"></label></div>
-<div class="grid three"><label>Arrival date<input type="date" name="arrival"></label><label>Departure date<input type="date" name="departure"></label><label>Number of guests<input type="number" min="1" name="guests"></label></div>
-<fieldset><legend>How can we help?</legend><label><input type="checkbox" name="services" value="Airport pickup"> Airport pickup</label><label><input type="checkbox" name="services" value="Airport dropoff"> Airport drop-off</label><label><input type="checkbox" name="services" value="Scooter rental"> Scooter rental</label><label><input type="checkbox" name="services" value="Local tricycle/car"> Local tricycle or car transport</label><label><input type="checkbox" name="services" value="Day trips"> Day trips</label><label><input type="checkbox" name="services" value="Overnight excursions"> Overnight excursions</label><label><input type="checkbox" name="services" value="Guide"> Local guide</label></fieldset>
-<fieldset><legend>What are you interested in?</legend><label><input type="checkbox" name="interests" value="Culture"> Local culture & people</label><label><input type="checkbox" name="interests" value="Beaches"> Beaches & islands</label><label><input type="checkbox" name="interests" value="Nature"> Nature & waterfalls</label><label><input type="checkbox" name="interests" value="Mayon"> Mayon & sightseeing</label><label><input type="checkbox" name="interests" value="Food"> Food & markets</label><label><input type="checkbox" name="interests" value="Remote work"> Remote work / longer stay</label></fieldset>
-<label>Tell us who you are and what kind of trip you are hoping for<textarea name="about" rows="6" placeholder="A little about yourselves, what you enjoy, what you would love to experience, and anything we should know..."></textarea></label>
-<label>Anything else?<textarea name="message" rows="4"></textarea></label>
-<button class="btn primary" type="submit">Prepare email request</button><p class="form-note">The form prepares an email to Henrik. No payment is taken on this page.</p>
-</form></main><footer><div>Created & developed by Henrik Bergfjord</div></footer><script src="../assets/js/forms.js"></script></body></html>
+
+    <header class="site-header">
+        <a class="brand" href="../index.html">
+            SOGOD STAY
+            <span>Experience the Real Philippines</span>
+        </a>
+
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="form-wrap">
+
+        <div class="form-intro">
+            <p class="eyebrow">PLAN YOUR STAY</p>
+
+            <h1>Tell us about your trip.</h1>
+
+            <p>
+                There is no fixed package. Tell us who you are, what you want
+                to experience and how much help you would like. We will use
+                your answers to shape a personal proposal.
+            </p>
+        </div>
+
+        <form id="bookingForm" class="booking-form">
+
+            <div class="grid two">
+                <label>
+                    Full name
+                    <input type="text" name="name" required>
+                </label>
+
+                <label>
+                    Email
+                    <input type="email" name="email" required>
+                </label>
+            </div>
+
+            <div class="grid two">
+                <label>
+                    Country
+                    <input type="text" name="country">
+                </label>
+
+                <label>
+                    Phone / WhatsApp
+                    <input type="tel" name="phone">
+                </label>
+            </div>
+
+            <div class="grid three">
+                <label>
+                    Arrival date
+                    <input type="date" name="arrival">
+                </label>
+
+                <label>
+                    Departure date
+                    <input type="date" name="departure">
+                </label>
+
+                <label>
+                    Number of guests
+                    <input type="number" min="1" name="guests">
+                </label>
+            </div>
+
+            <fieldset>
+                <legend>How can we help?</legend>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="services"
+                        value="Airport pickup"
+                    >
+                    Airport pickup
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="services"
+                        value="Airport dropoff"
+                    >
+                    Airport drop-off
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="services"
+                        value="Scooter rental"
+                    >
+                    Scooter rental
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="services"
+                        value="Local tricycle/car"
+                    >
+                    Local tricycle or car transport
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="services"
+                        value="Day trips"
+                    >
+                    Day trips
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="services"
+                        value="Overnight excursions"
+                    >
+                    Overnight excursions
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="services"
+                        value="Guide"
+                    >
+                    Local guide
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>What are you interested in?</legend>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="interests"
+                        value="Culture"
+                    >
+                    Local culture &amp; people
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="interests"
+                        value="Beaches"
+                    >
+                    Beaches &amp; islands
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="interests"
+                        value="Nature"
+                    >
+                    Nature &amp; waterfalls
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="interests"
+                        value="Mayon"
+                    >
+                    Mayon &amp; sightseeing
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="interests"
+                        value="Food"
+                    >
+                    Food &amp; markets
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="interests"
+                        value="Remote work"
+                    >
+                    Remote work / longer stay
+                </label>
+            </fieldset>
+
+            <label>
+                Tell us who you are and what kind of trip you are hoping for
+
+                <textarea
+                    name="about"
+                    rows="6"
+                    placeholder="A little about yourselves, what you enjoy, what you would love to experience, and anything we should know..."
+                ></textarea>
+            </label>
+
+            <label>
+                Anything else?
+
+                <textarea
+                    name="message"
+                    rows="4"
+                ></textarea>
+            </label>
+
+            <button class="btn primary" type="submit">
+                Prepare email request
+            </button>
+
+            <p class="form-note">
+                The form prepares an email to Henrik. No payment is taken on
+                this page.
+            </p>
+
+        </form>
+    </main>
+
+    <footer>
+        <div>
+            Created &amp; developed by Henrik Bergfjord
+        </div>
+    </footer>
+
+    <script src="../assets/js/forms.js"></script>
+
+</body>
+</html>
