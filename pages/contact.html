@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Contact — Sogod Stay</title>
+
+    <meta
+        name="description"
+        content="Contact Sogod Stay in Albay, Philippines. Ask us about accommodation, airport pickup, scooter rental, local experiences and discovering the real Philippines."
+    >
 
     <link rel="stylesheet" href="../assets/css/styles.css">
 
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            c[a]=c[a]||function(){
+                (c[a].q=c[a].q||[]).push(arguments)
+            };
             t=l.createElement(r);
             t.async=1;
             t.src="https://www.clarity.ms/tag/"+i;
@@ -21,3 +30,110 @@
 </head>
 
 <body class="inner-page">
+
+    <header class="site-header">
+
+        <a class="brand" href="../index.html">
+            SOGOD STAY
+            <span>Experience the Real Philippines</span>
+        </a>
+
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="booking.html">Plan your stay</a>
+        </nav>
+
+    </header>
+
+    <main class="form-wrap">
+
+        <div class="form-intro">
+
+            <p class="eyebrow">GET IN TOUCH</p>
+
+            <h1>
+                Curious about Albay, its culture and its people?
+            </h1>
+
+            <p>
+                If you are interested in getting closer to a culture that has
+                a way of becoming more and more lovable the longer you stay,
+                write to us.
+            </p>
+
+            <p>
+                Tell us what brings you to the Philippines, who you are
+                travelling with and what you hope to discover.
+            </p>
+
+        </div>
+
+        <form id="contactForm" class="booking-form">
+
+            <div class="grid two">
+
+                <label>
+                    Name
+                    <input
+                        type="text"
+                        name="name"
+                        required
+                    >
+                </label>
+
+                <label>
+                    Email
+                    <input
+                        type="email"
+                        name="email"
+                        required
+                    >
+                </label>
+
+            </div>
+
+            <label>
+                Subject
+                <input
+                    type="text"
+                    name="subject"
+                >
+            </label>
+
+            <label>
+                Your message
+
+                <textarea
+                    name="message"
+                    rows="8"
+                    placeholder="Tell us a little about yourself, your travel plans and what you would like to experience in Albay..."
+                    required
+                ></textarea>
+            </label>
+
+            <button
+                class="btn primary"
+                type="submit"
+            >
+                Prepare email
+            </button>
+
+            <p class="form-note">
+                Your email app will open with the message addressed to
+                henrik.bergfjord@outlook.com.
+            </p>
+
+        </form>
+
+    </main>
+
+    <footer>
+        <div>
+            Created &amp; developed by Henrik Bergfjord
+        </div>
+    </footer>
+
+    <script src="../assets/js/forms.js"></script>
+
+</body>
+</html>
