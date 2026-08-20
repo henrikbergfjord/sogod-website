@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeepney Travel in Bicol — Sogod Stay</title>
+<meta name="description" content="Discover jeepneys in Bicol and Albay — what they are, how to ride, what fares typically cost and how local public transport can become part of your Sogod Stay experience.">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script type="text/javascript">
+(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","y4c5fg1ysl");
+</script>
+<style>
+        .transport-page {
+            background:#f4f0e8;
+        }
+
+        .transport-hero {
+            position:relative;
+            min-height:660px;
+            overflow:hidden;
+            background:#18382d;
+        }
+
+        .transport-hero img {
+            position:absolute;
+            inset:0;
+            width:100%;
+            height:100%;
+            object-fit:cover;
+        }
+
+        .transport-overlay {
+            position:absolute;
+            inset:0;
+            background:linear-gradient(
+                90deg,
+                rgba(244,240,232,.98) 0%,
+                rgba(244,240,232,.93) 27%,
+                rgba(244,240,232,.54) 46%,
+                rgba(244,240,232,.10) 70%,
+                rgba(244,240,232,0) 100%
+            );
+        }
+
+        .transport-copy {
+            position:relative;
+            z-index:2;
+            max-width:1280px;
+            margin:0 auto;
+            padding:94px 28px 70px;
+        }
+
+        .transport-copy-inner {
+            max-width:560px;
+        }
+
+        .transport-copy h1 {
+            margin:10px 0 18px;
+            font-size:clamp(3.3rem,6.6vw,6.6rem);
+            line-height:.89;
+            letter-spacing:-.055em;
+            color:#123429;
+        }
+
+        .transport-copy p {
+            font-size:1.08rem;
+            line-height:1.67;
+        }
+
+        .transport-points {
+            display:grid;
+            gap:12px;
+            margin-top:24px;
+        }
+
+        .transport-points span {
+            display:flex;
+            align-items:center;
+            gap:10px;
+            font-weight:700;
+        }
+
+        .transport-points span::before {
+            content:"✓";
+            display:grid;
+            place-items:center;
+            width:22px;
+            height:22px;
+            border-radius:50%;
+            background:#bf6900;
+            color:#fff;
+            font-size:.75rem;
+        }
+
+        .transport-body,
+        .fare-section,
+        .tips-section,
+        .transport-cta {
+            max-width:1280px;
+            margin:0 auto;
+        }
+
+        .transport-body {
+            padding:66px 28px 28px;
+            display:grid;
+            grid-template-columns:.9fr 1.1fr;
+            gap:46px;
+        }
+
+        .transport-body h2,
+        .fare-section h2,
+        .tips-section h2,
+        .transport-cta h2 {
+            margin:8px 0 14px;
+            font-size:clamp(2.1rem,4vw,3.7rem);
+            line-height:1;
+            letter-spacing:-.035em;
+        }
+
+        .transport-body p,
+        .fare-section p,
+        .tips-section p,
+        .transport-cta p {
+            line-height:1.65;
+        }
+
+        .transport-highlight {
+            padding:20px;
+            border-left:3px solid #d79b39;
+            background:rgba(255,255,255,.58);
+            font-weight:700;
+        }
+
+        .fare-section,
+        .tips-section {
+            padding:52px 28px;
+        }
+
+        .fare-grid {
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:16px;
+            margin-top:28px;
+        }
+
+        .fare-card {
+            padding:24px;
+            border-radius:18px;
+            background:rgba(255,255,255,.84);
+            border:1px solid rgba(18,52,40,.12);
+        }
+
+        .fare-card span {
+            font-size:1.85rem;
+        }
+
+        .fare-card h3 {
+            margin:18px 0 8px;
+        }
+
+        .fare-card strong {
+            display:block;
+            margin:14px 0 4px;
+            color:#a86814;
+            font-size:1.35rem;
+        }
+
+        .fare-card small {
+            opacity:.7;
+            line-height:1.45;
+        }
+
+        .tips-grid {
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            gap:1px;
+            overflow:hidden;
+            border-radius:22px;
+            background:rgba(18,52,40,.14);
+        }
+
+        .tips-grid article {
+            min-height:210px;
+            padding:25px;
+            background:#0e2d22;
+            color:#fff;
+        }
+
+        .tips-grid span {
+            font-size:1.7rem;
+        }
+
+        .tips-grid h3 {
+            margin:30px 0 8px;
+        }
+
+        .tips-grid p {
+            color:rgba(255,255,255,.72);
+        }
+
+        .transport-note {
+            max-width:900px;
+            margin:0 auto;
+            padding:28px;
+            font-size:.78rem;
+            line-height:1.6;
+            opacity:.72;
+        }
+
+        .transport-cta {
+            margin-bottom:70px;
+            padding:72px 28px;
+            text-align:center;
+            border-radius:28px;
+            background:#e2ad53;
+        }
+
+        .transport-cta p {
+            max-width:700px;
+            margin:0 auto 24px;
+        }
+
+        @media (max-width:950px) {
+            .transport-body {
+                grid-template-columns:1fr;
+            }
+
+            .fare-grid {
+                grid-template-columns:1fr;
+            }
+
+            .tips-grid {
+                grid-template-columns:repeat(2,1fr);
+            }
+        }
+
+        @media (max-width:650px) {
+            .transport-hero {
+                min-height:600px;
+            }
+
+            .transport-overlay {
+                background:linear-gradient(
+                    180deg,
+                    rgba(244,240,232,.95) 0%,
+                    rgba(244,240,232,.84) 52%,
+                    rgba(244,240,232,.18) 84%,
+                    rgba(244,240,232,0) 100%
+                );
+            }
+
+            .transport-copy {
+                padding-top:56px;
+            }
+
+            .transport-copy h1 {
+                font-size:clamp(3rem,15vw,4.7rem);
+            }
+
+            .tips-grid {
+                grid-template-columns:1fr;
+            }
+
+            .transport-cta {
+                margin-bottom:0;
+                border-radius:0;
+            }
+        }
+</style>
+</head>
+<body class="transport-page">
+<header class="site-header">
+<a class="brand" href="index.html">SOGOD STAY<span>Experience the Real Philippines</span></a>
+<nav><a href="index.html">Home</a><a href="tricycle.html">Tricycle</a><a href="freedom.html">Your freedom</a><a href="guide.html">Guide</a><a class="nav-cta" href="pages/booking.html">Plan your stay</a></nav>
+</header>
+<main>
+<section class="transport-hero">
+<img src="assets/images/jeepney-hero.jpg" alt="Colorful Philippine jeepney with Mayon Volcano scenery">
+<div class="transport-overlay"></div>
+<div class="transport-copy"><div class="transport-copy-inner">
+<p class="eyebrow">LOCAL TRANSPORT · PHILIPPINES</p>
+<h1>Ride one of the icons of the Philippines.</h1>
+<p>A jeepney is more than transport. It is noisy, colorful, practical and part of everyday Filipino life. For short and medium local journeys, riding one can be an experience in itself.</p>
+<div class="transport-points"><span>Very affordable</span><span>Shared local transport</span><span>A real everyday experience</span></div>
+</div></div>
+</section>
+
+<section class="transport-body">
+<div><p class="eyebrow">WHAT IS A JEEPNEY?</p><h2>Public transport with personality.</h2></div>
+<div>
+<p>Traditional jeepneys evolved from post-war utility vehicles and became one of the most recognizable forms of public transport in the Philippines. They normally follow fixed or semi-fixed routes and pick up and drop off passengers along the way.</p>
+<p>For a visitor, the system can feel informal at first: ask where the jeepney is going, get on, pass your fare forward, and tell the driver when you want to get off.</p>
+<p class="transport-highlight">This is not private transport. You share the ride with local passengers — and that is exactly what makes it interesting.</p>
+</div>
+</section>
+
+<section class="fare-section">
+<p class="eyebrow">FARE GUIDE</p>
+<h2>One of the cheapest ways to move around.</h2>
+<p>LTFRB's published traditional public-utility-jeepney fare guide lists a ₱13 regular fare for the first 4 km and an additional ₱1.80 per succeeding kilometer. Local route and updated fare notices should always be checked when you travel.</p>
+<div class="fare-grid">
+<article class="fare-card"><span>🪙</span><h3>First 4 km</h3><strong>about ₱13</strong><small>Official published traditional PUJ reference fare.</small></article>
+<article class="fare-card"><span>🛣️</span><h3>After 4 km</h3><strong>+ about ₱1.80/km</strong><small>Published add-on method. Actual posted fare board applies.</small></article>
+<article class="fare-card"><span>👥</span><h3>Per passenger</h3><strong>Pay individually</strong><small>Keep small PHP notes and coins when possible.</small></article>
+</div>
+</section>
+
+<section class="tips-section">
+<p class="eyebrow">HOW TO RIDE</p>
+<h2>It feels complicated only the first time.</h2>
+<div class="tips-grid">
+<article><span>📍</span><h3>Check the route</h3><p>Ask the driver or a local person whether the jeepney goes where you need.</p></article>
+<article><span>💵</span><h3>Bring small cash</h3><p>Jeepneys are cash-based. Small notes and coins make everything easier.</p></article>
+<article><span>🗣️</span><h3>Say “Para po”</h3><p>A common polite way to tell the driver you want to stop.</p></article>
+<article><span>🙂</span><h3>Enjoy the experience</h3><p>Do not expect a tourist coach. This is everyday Philippines.</p></article>
+</div>
+</section>
+
+<div class="transport-note">Fare information is a reference, not a guarantee for every route. Always follow the fare matrix posted on the vehicle or current local/LTFRB rules.</div>
+
+<section class="transport-cta">
+<p class="eyebrow">TRY LOCAL LIFE</p>
+<h2>Want help taking your first jeepney?</h2>
+<p>Ask us which route makes sense for where you want to go, or combine local public transport with a guide for your first trip.</p>
+<a class="btn primary" href="pages/booking.html" onclick="if(typeof clarity==='function'){clarity('event','jeepney_booking_click')};">Plan my local transport</a>
+</section>
+</main>
+<footer><div><strong>Sogod Stay</strong><br><span>Sogod · Albay · Philippines</span></div><div><a href="index.html">Home</a> · <a href="tricycle.html">Tricycle</a> · <a href="guide.html">Guide</a></div><div>Created &amp; developed by Henrik Bergfjord</div></footer>
+</body>
+</html>

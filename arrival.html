@@ -1,75 +1,636 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Warm Arrival — Sogod Stay</title>
-<meta name="description" content="Airport pickup and drop-off between Bicol International Airport and Sogod Stay in Albay, with local arrival help and transport for up to four guests.">
-<link rel="stylesheet" href="assets/css/styles.css">
-<link rel="stylesheet" href="assets/css/core-experiences.css">
-<script type="text/javascript">
-(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","y4c5fg1ysl");
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Warm Arrival — Sogod Stay, Albay</title>
+
+    <meta
+        name="description"
+        content="Airport pickup and drop-off between Bicol International Airport and Sogod Stay in Albay. Private transport, local help and a smooth start to your stay."
+    >
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){
+                (c[a].q=c[a].q||[]).push(arguments)
+            };
+            t=l.createElement(r);
+            t.async=1;
+            t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];
+            y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "y4c5fg1ysl");
+    </script>
+
+    <style>
+        .arrival-page {
+            background: #f5f0e7;
+        }
+
+        .arrival-hero {
+            position: relative;
+            min-height: 690px;
+            overflow: hidden;
+            background: #17362c;
+        }
+
+        .arrival-hero img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .arrival-overlay {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(245,240,231,.98) 0%,
+                    rgba(245,240,231,.93) 26%,
+                    rgba(245,240,231,.55) 44%,
+                    rgba(245,240,231,.08) 68%,
+                    rgba(245,240,231,0) 100%
+                );
+        }
+
+        .arrival-copy {
+            position: relative;
+            z-index: 2;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 96px 28px 78px;
+        }
+
+        .arrival-copy-inner {
+            max-width: 540px;
+        }
+
+        .arrival-copy h1 {
+            margin: 10px 0 20px;
+            font-size: clamp(3.4rem, 6vw, 6.6rem);
+            line-height: .9;
+            letter-spacing: -.055em;
+            color: #123428;
+        }
+
+        .arrival-copy > .arrival-copy-inner > p {
+            max-width: 520px;
+            font-size: 1.08rem;
+            line-height: 1.65;
+        }
+
+        .arrival-points {
+            display: grid;
+            gap: 12px;
+            margin-top: 26px;
+        }
+
+        .arrival-points span {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            font-weight: 700;
+        }
+
+        .arrival-points span::before {
+            content: "✓";
+            display: grid;
+            place-items: center;
+            width: 23px;
+            height: 23px;
+            border-radius: 50%;
+            background: #c66f00;
+            color: white;
+            font-size: .76rem;
+        }
+
+        .arrival-benefits {
+            position: relative;
+            z-index: 3;
+            max-width: 1280px;
+            margin: -42px auto 0;
+            padding: 0 28px;
+        }
+
+        .arrival-benefits-inner {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            background: rgba(255,255,255,.96);
+            border: 1px solid rgba(18,52,40,.12);
+            border-radius: 18px;
+            box-shadow: 0 18px 46px rgba(18,52,40,.08);
+            overflow: hidden;
+        }
+
+        .arrival-benefit {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-height: 92px;
+            padding: 18px;
+            border-right: 1px solid rgba(18,52,40,.10);
+        }
+
+        .arrival-benefit:last-child {
+            border-right: none;
+        }
+
+        .arrival-benefit span {
+            font-size: 1.6rem;
+        }
+
+        .arrival-benefit strong {
+            font-size: .82rem;
+            line-height: 1.35;
+        }
+
+        .arrival-main {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 54px 28px 80px;
+        }
+
+        .arrival-main h2 {
+            margin: 0 0 24px;
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
+            line-height: 1;
+            letter-spacing: -.035em;
+        }
+
+        .arrival-grid {
+            display: grid;
+            grid-template-columns: .95fr 1.25fr;
+            gap: 22px;
+        }
+
+        .service-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .service-card,
+        .how-card,
+        .info-card {
+            background: rgba(255,255,255,.86);
+            border: 1px solid rgba(18,52,40,.11);
+            border-radius: 18px;
+        }
+
+        .service-card {
+            padding: 24px;
+        }
+
+        .service-icon {
+            font-size: 2rem;
+        }
+
+        .service-card h3 {
+            margin: 12px 0 4px;
+            font-size: 1.28rem;
+        }
+
+        .service-route {
+            font-size: .76rem;
+            opacity: .72;
+        }
+
+        .service-price {
+            margin: 18px 0;
+            color: #b85f00;
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        .service-card ul {
+            margin: 0;
+            padding-left: 20px;
+            line-height: 1.8;
+            font-size: .84rem;
+        }
+
+        .service-card .btn {
+            margin-top: 22px;
+        }
+
+        .how-column {
+            display: grid;
+            gap: 16px;
+        }
+
+        .how-card {
+            padding: 24px;
+        }
+
+        .how-card h3 {
+            margin-top: 0;
+        }
+
+        .how-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 22px;
+        }
+
+        .how-step {
+            text-align: center;
+            padding: 10px 6px;
+        }
+
+        .how-step .step-icon {
+            width: 62px;
+            height: 62px;
+            margin: 0 auto 12px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: #fff;
+            border: 1px solid rgba(18,52,40,.10);
+            font-size: 1.55rem;
+        }
+
+        .how-step strong {
+            display: block;
+            margin-bottom: 4px;
+            font-size: .82rem;
+        }
+
+        .how-step p {
+            margin: 0;
+            font-size: .72rem;
+            line-height: 1.45;
+            opacity: .72;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .info-card {
+            padding: 22px;
+        }
+
+        .info-card h3 {
+            margin: 0 0 8px;
+        }
+
+        .info-card p {
+            margin: 0;
+            font-size: .82rem;
+            line-height: 1.55;
+        }
+
+        .arrival-bottom-cta {
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+            align-items: center;
+            margin-top: 20px;
+            padding: 24px 28px;
+            border-radius: 18px;
+            background: #f1e8db;
+            border: 1px solid rgba(18,52,40,.08);
+        }
+
+        .arrival-bottom-cta strong {
+            font-size: 1rem;
+        }
+
+        @media (max-width: 1020px) {
+            .arrival-benefits-inner {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .arrival-benefit:nth-child(3n) {
+                border-right: none;
+            }
+
+            .arrival-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .arrival-hero {
+                min-height: 620px;
+            }
+
+            .arrival-overlay {
+                background:
+                    linear-gradient(
+                        180deg,
+                        rgba(245,240,231,.94) 0%,
+                        rgba(245,240,231,.86) 52%,
+                        rgba(245,240,231,.26) 78%,
+                        rgba(245,240,231,0) 100%
+                    );
+            }
+
+            .arrival-copy {
+                padding-top: 58px;
+            }
+
+            .arrival-copy-inner {
+                max-width: 100%;
+            }
+
+            .arrival-benefits-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .service-column,
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .how-steps {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .arrival-bottom-cta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
 </head>
-<body class="mini-page">
+
+<body class="arrival-page">
+
 <header class="site-header">
-<a class="brand" href="index.html">SOGOD STAY<span>Experience the Real Philippines</span></a>
-<nav><a href="index.html">Home</a><a href="freedom.html">Transport</a><a href="connected.html">Internet</a><a href="guide.html">Guide</a><a class="nav-cta" href="pages/booking.html">Plan your stay</a></nav>
+
+    <a class="brand" href="index.html">
+        SOGOD STAY
+        <span>Experience the Real Philippines</span>
+    </a>
+
+    <nav>
+        <a href="index.html#stay">Stay</a>
+        <a href="index.html#experience">Experiences</a>
+        <a href="index.html#location">Location</a>
+        <a href="holiday-planner.html">Holiday Planner</a>
+        <a href="pages/contact.html">Contact</a>
+        <a class="nav-cta" href="pages/booking.html">Book your stay</a>
+    </nav>
+
 </header>
+
 <main>
-<section class="mini-hero">
-<div>
-<p class="eyebrow">A WARM ARRIVAL</p>
-<h1>We are here when you land.</h1>
-<p class="mini-lead">After a long flight, the last thing you need is uncertainty. We can arrange pickup from Bicol International Airport, coordinate around your arrival and get you comfortably to Sogod Stay.</p>
-<div class="mini-actions">
-<a class="btn primary track-mini" data-clarity-event="arrival_book_pickup" href="pages/booking.html?service=airport-transfer">Book airport pickup</a>
-<a class="btn ghost dark-ghost" href="#how">How it works</a>
-</div>
-</div>
-<div class="mini-hero-image"><img src="assets/images/arrival-hero.jpg" alt="Airport arrival and welcome in Albay"></div>
-</section>
 
-<section class="mini-section" id="how">
-<div>
-<p class="eyebrow">HOW IT WORKS</p>
-<h2>Simple from landing to your front door.</h2>
-</div>
-<div>
-<p>Send us your flight details before arrival. We coordinate the pickup time and tell you where to meet. If your flight changes, let us know and we adjust where possible.</p>
-<p class="mini-highlight">The goal is simple: no bargaining, no guessing and no need to figure out local transport while tired.</p>
-</div>
-</section>
+    <section class="arrival-hero">
 
-<section class="mini-price-section">
-<p class="eyebrow">AIRPORT SERVICES</p>
-<h2>Clear planning rates.</h2>
-<div class="price-grid">
-<article class="price-card"><span>✈️</span><h3>Airport pickup</h3><p>Bicol International Airport → Sogod Stay</p><strong>₱5,000</strong><small>Planning rate · one vehicle · up to 4 passengers.</small></article>
-<article class="price-card"><span>🧳</span><h3>Airport drop-off</h3><p>Sogod Stay → Bicol International Airport</p><strong>₱5,000</strong><small>Planning rate · one vehicle · up to 4 passengers.</small></article>
-<article class="price-card"><span>🤝</span><h3>Arrival help</h3><p>Coordination, local directions and a smoother first hour in Albay.</p><strong>Included</strong><small>Final pickup details are confirmed before travel.</small></article>
-</div>
-</section>
+        <img
+            src="assets/images/arrival-hero.jpg"
+            alt="Woman beside a scooter with Mayon Volcano in Albay"
+        >
 
-<section class="mini-benefits">
-<p class="eyebrow">WHAT YOU GET</p>
-<h2>A better first impression of the Philippines.</h2>
-<div class="benefit-grid">
-<article><span>📍</span><h3>Clear meeting point</h3><p>We tell you exactly where to meet after arrival.</p></article>
-<article><span>🧳</span><h3>Help with luggage</h3><p>Less stress when you are tired after a long journey.</p></article>
-<article><span>👨‍👩‍👧‍👦</span><h3>Up to four guests</h3><p>Designed for couples, families and small groups.</p></article>
-<article><span>🌴</span><h3>Start locally</h3><p>Your experience begins from the moment you arrive.</p></article>
-</div>
-</section>
+        <div class="arrival-overlay"></div>
 
-<section class="mini-cta">
-<p class="eyebrow">LAND · MEET · RELAX</p>
-<h2>Let us take care of the first part.</h2>
-<p>Add airport pickup or drop-off to your request and we will confirm the details with you.</p>
-<a class="btn primary track-mini" data-clarity-event="arrival_cta" href="pages/booking.html?service=airport-transfer">Add airport pickup</a>
-</section>
+        <div class="arrival-copy">
+
+            <div class="arrival-copy-inner">
+
+                <p class="eyebrow">
+                    A WARM ARRIVAL
+                </p>
+
+                <h1>
+                    We’ll take care of the start.
+                </h1>
+
+                <p>
+                    From the moment you land, we’re here to welcome you
+                    and make your arrival in Bicol smooth and easy.
+                </p>
+
+                <div class="arrival-points">
+                    <span>Friendly local host</span>
+                    <span>Safe, reliable &amp; comfortable</span>
+                    <span>Up to 4 passengers</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="arrival-benefits">
+
+        <div class="arrival-benefits-inner">
+
+            <div class="arrival-benefit">
+                <span>🤝</span>
+                <strong>Meet &amp; greet<br>at the airport</strong>
+            </div>
+
+            <div class="arrival-benefit">
+                <span>🧳</span>
+                <strong>Help with luggage<br>and directions</strong>
+            </div>
+
+            <div class="arrival-benefit">
+                <span>❄️</span>
+                <strong>Comfortable,<br>air-conditioned vehicle</strong>
+            </div>
+
+            <div class="arrival-benefit">
+                <span>👨‍👩‍👧‍👦</span>
+                <strong>Up to 4<br>passengers</strong>
+            </div>
+
+            <div class="arrival-benefit">
+                <span>🕒</span>
+                <strong>We monitor<br>your flight</strong>
+            </div>
+
+            <div class="arrival-benefit">
+                <span>🛡️</span>
+                <strong>Safe, friendly<br>and reliable</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="arrival-main">
+
+        <h2>Airport Services</h2>
+
+        <div class="arrival-grid">
+
+            <div class="service-column">
+
+                <article class="service-card">
+                    <div class="service-icon">✈️</div>
+
+                    <h3>Airport pickup</h3>
+
+                    <p class="service-route">
+                        Bicol International Airport → Sogod Stay
+                    </p>
+
+                    <div class="service-price">₱5,000</div>
+
+                    <ul>
+                        <li>Meet &amp; greet inside the arrivals area</li>
+                        <li>Help with luggage</li>
+                        <li>Comfortable, air-conditioned vehicle</li>
+                        <li>Up to 4 passengers</li>
+                    </ul>
+
+                    <a
+                        class="btn primary"
+                        href="pages/booking.html?service=airport-transfer"
+                        onclick="if(typeof clarity==='function'){clarity('event','arrival_pickup_click')}"
+                    >
+                        Book airport pickup
+                    </a>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-icon">🛫</div>
+
+                    <h3>Airport drop-off</h3>
+
+                    <p class="service-route">
+                        Sogod Stay → Bicol International Airport
+                    </p>
+
+                    <div class="service-price">₱5,000</div>
+
+                    <ul>
+                        <li>On time and stress-free</li>
+                        <li>We’ll help you plan the timing</li>
+                        <li>Comfortable, air-conditioned vehicle</li>
+                        <li>Up to 4 passengers</li>
+                    </ul>
+
+                    <a
+                        class="btn primary"
+                        href="pages/booking.html"
+                        onclick="if(typeof clarity==='function'){clarity('event','arrival_dropoff_click')}"
+                    >
+                        Book airport drop-off
+                    </a>
+                </article>
+
+            </div>
+
+            <div class="how-column">
+
+                <article class="how-card">
+
+                    <h3>How it works</h3>
+
+                    <div class="how-steps">
+
+                        <div class="how-step">
+                            <div class="step-icon">✈️</div>
+                            <strong>You land</strong>
+                            <p>We monitor your flight.</p>
+                        </div>
+
+                        <div class="how-step">
+                            <div class="step-icon">🤝</div>
+                            <strong>We meet you</strong>
+                            <p>Our host will be waiting for you.</p>
+                        </div>
+
+                        <div class="how-step">
+                            <div class="step-icon">🧳</div>
+                            <strong>We help</strong>
+                            <p>With your luggage and directions.</p>
+                        </div>
+
+                        <div class="how-step">
+                            <div class="step-icon">🚙</div>
+                            <strong>Enjoy the ride</strong>
+                            <p>Relax and enjoy your first views of Bicol.</p>
+                        </div>
+
+                    </div>
+
+                </article>
+
+                <div class="info-grid">
+
+                    <article class="info-card">
+                        <h3>🛡️ Safe &amp; reliable</h3>
+                        <p>
+                            Your safety is our priority. We use local,
+                            trusted transport and confirm the details
+                            before your journey.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <h3>💬 Questions?</h3>
+                        <p>
+                            Tell us your flight, arrival time and anything
+                            else we should know through the booking request.
+                        </p>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="arrival-bottom-cta">
+
+            <strong>
+                🌴 Let us take care of your arrival, so you can start enjoying your trip.
+            </strong>
+
+            <a
+                class="btn primary"
+                href="pages/booking.html"
+                onclick="if(typeof clarity==='function'){clarity('event','arrival_plan_trip')}"
+            >
+                Plan your whole trip →
+            </a>
+
+        </div>
+
+    </section>
+
 </main>
-<footer><div><strong>Sogod Stay</strong><br><span>Sogod · Albay · Philippines</span></div><div><a href="index.html">Home</a> · <a href="guide.html">Guide</a> · <a href="pages/booking.html">Booking request</a></div><div>Created &amp; developed by Henrik Bergfjord</div></footer>
-<script src="assets/js/core-experiences.js"></script>
+
+<footer>
+
+    <div>
+        <strong>Sogod Stay</strong>
+        <br>
+        <span>Sogod · Albay · Philippines</span>
+    </div>
+
+    <div>
+        <a href="index.html">Home</a>
+        ·
+        <a href="guide.html">Guide</a>
+        ·
+        <a href="pages/booking.html">Booking request</a>
+    </div>
+
+    <div>
+        Created &amp; developed by Henrik Bergfjord
+    </div>
+
+</footer>
+
 </body>
 </html>
