@@ -1,0 +1,425 @@
+.guide-page {
+    background: #f4f0e8;
+}
+
+.guide-hero,
+.price-tools,
+.guide-section,
+.atv-section,
+.ideas-section,
+.guide-disclaimer,
+.guide-final-cta {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.guide-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(280px, .65fr);
+    gap: 34px;
+    padding: 92px 28px 64px;
+    align-items: end;
+}
+
+.guide-hero h1 {
+    max-width: 850px;
+    margin: 10px 0 22px;
+    font-size: clamp(3.2rem, 7vw, 6.8rem);
+    line-height: .88;
+    letter-spacing: -.055em;
+}
+
+.guide-lead {
+    max-width: 760px;
+    font-size: 1.12rem;
+    line-height: 1.7;
+}
+
+.guide-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.dark-ghost {
+    border-color: #102b22;
+    color: #102b22;
+}
+
+.guide-highlight {
+    padding: 34px;
+    border-radius: 24px;
+    background: #0e2c22;
+    color: #fff;
+    box-shadow: 0 24px 70px rgba(18, 39, 30, .14);
+}
+
+.guide-highlight h2 {
+    margin: 10px 0 14px;
+    font-size: 2rem;
+    line-height: 1.05;
+}
+
+.guide-highlight p {
+    color: rgba(255,255,255,.8);
+    line-height: 1.6;
+}
+
+.mini-label,
+.service-tag {
+    display: inline-block;
+    font-size: .67rem;
+    font-weight: 800;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: #d7a449;
+}
+
+.price-tools {
+    display: grid;
+    grid-template-columns: 1fr .85fr;
+    gap: 30px;
+    padding: 38px 28px;
+    margin-bottom: 30px;
+    border-top: 1px solid rgba(16,43,34,.15);
+    border-bottom: 1px solid rgba(16,43,34,.15);
+}
+
+.price-tools h2,
+.section-heading h2,
+.atv-intro h2,
+.guide-disclaimer h2,
+.guide-final-cta h2 {
+    margin: 7px 0 12px;
+    font-size: clamp(2rem, 4vw, 3.8rem);
+    line-height: 1;
+    letter-spacing: -.035em;
+}
+
+.price-tools p,
+.section-heading p,
+.atv-intro p,
+.guide-disclaimer p,
+.guide-final-cta p {
+    line-height: 1.65;
+}
+
+.currency-box {
+    align-self: center;
+    padding: 24px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.05);
+}
+
+.currency-box label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.currency-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+}
+
+.currency-row select,
+.currency-button {
+    min-height: 46px;
+    border-radius: 12px;
+    border: 1px solid rgba(16,43,34,.18);
+}
+
+.currency-row select {
+    padding: 0 12px;
+    background: #fbfaf7;
+}
+
+.currency-button {
+    padding: 0 18px;
+    background: #d8a74f;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.currency-status {
+    margin: 10px 0 0;
+    font-size: .78rem;
+    opacity: .65;
+}
+
+.guide-section {
+    padding: 68px 28px;
+}
+
+.section-heading {
+    max-width: 760px;
+    margin-bottom: 32px;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.service-card {
+    position: relative;
+    padding: 26px;
+    border-radius: 20px;
+    background: rgba(255,255,255,.78);
+    border: 1px solid rgba(16,43,34,.12);
+    display: flex;
+    flex-direction: column;
+    min-height: 390px;
+}
+
+.featured-service {
+    background: #0e2c22;
+    color: #fff;
+}
+
+.featured-service p,
+.featured-service .small-note {
+    color: rgba(255,255,255,.76);
+}
+
+.service-icon {
+    font-size: 1.8rem;
+    margin-bottom: 14px;
+}
+
+.service-card h3 {
+    margin: 9px 0 11px;
+    font-size: 1.45rem;
+}
+
+.service-card > p {
+    line-height: 1.55;
+}
+
+.price-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 11px 0;
+    border-top: 1px solid rgba(16,43,34,.12);
+    font-size: .92rem;
+}
+
+.featured-service .price-line {
+    border-color: rgba(255,255,255,.14);
+}
+
+.price-line strong {
+    white-space: nowrap;
+}
+
+.small-note {
+    margin-top: 10px;
+    font-size: .76rem;
+    opacity: .7;
+}
+
+.service-link {
+    margin-top: auto;
+    padding-top: 20px;
+    font-weight: 800;
+    text-decoration: none;
+    color: #a46a14;
+}
+
+.featured-service .service-link {
+    color: #efc477;
+}
+
+.atv-section {
+    margin-top: 30px;
+    padding: 70px 28px;
+    background: #0c2a20;
+    color: #fff;
+    border-radius: 34px;
+}
+
+.atv-intro {
+    max-width: 820px;
+    margin-bottom: 32px;
+}
+
+.atv-intro p {
+    color: rgba(255,255,255,.76);
+}
+
+.atv-table-wrap {
+    overflow-x: auto;
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 18px;
+}
+
+.atv-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 760px;
+}
+
+.atv-table th,
+.atv-table td {
+    padding: 17px 18px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.atv-table th {
+    color: #e9bd6d;
+    font-size: .7rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.atv-table td {
+    color: rgba(255,255,255,.9);
+}
+
+.atv-tips {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 20px;
+}
+
+.atv-tips article {
+    padding: 20px;
+    border-radius: 16px;
+    background: rgba(255,255,255,.055);
+}
+
+.atv-tips h3 {
+    margin: 8px 0;
+}
+
+.atv-tips p {
+    margin: 0;
+    color: rgba(255,255,255,.7);
+    line-height: 1.5;
+}
+
+.atv-cta {
+    display: inline-block;
+    margin-top: 26px;
+}
+
+.ideas-section {
+    padding: 78px 28px;
+}
+
+.idea-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.idea-grid article {
+    min-height: 225px;
+    padding: 24px;
+    border-top: 1px solid rgba(16,43,34,.22);
+}
+
+.idea-number {
+    color: #b87a22;
+    font-size: .75rem;
+    font-weight: 900;
+    letter-spacing: .12em;
+}
+
+.idea-grid h3 {
+    margin: 34px 0 10px;
+    font-size: 1.35rem;
+}
+
+.idea-grid p {
+    line-height: 1.55;
+    opacity: .78;
+}
+
+.guide-disclaimer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 42px;
+    padding: 58px 28px;
+    border-top: 1px solid rgba(16,43,34,.16);
+}
+
+.guide-final-cta {
+    margin-bottom: 70px;
+    padding: 70px 28px;
+    text-align: center;
+    border-radius: 28px;
+    background: #e4b35d;
+}
+
+.guide-final-cta p {
+    max-width: 650px;
+    margin: 0 auto 24px;
+}
+
+@media (max-width: 950px) {
+    .guide-hero,
+    .price-tools,
+    .guide-disclaimer {
+        grid-template-columns: 1fr;
+    }
+
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .idea-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .atv-section {
+        border-radius: 0;
+    }
+}
+
+@media (max-width: 640px) {
+    .guide-hero {
+        padding-top: 55px;
+    }
+
+    .guide-hero h1 {
+        font-size: clamp(3rem, 15vw, 4.6rem);
+    }
+
+    .service-grid,
+    .idea-grid,
+    .atv-tips {
+        grid-template-columns: 1fr;
+    }
+
+    .currency-row {
+        grid-template-columns: 1fr;
+    }
+
+    .guide-section,
+    .atv-section,
+    .ideas-section,
+    .guide-disclaimer,
+    .guide-final-cta,
+    .price-tools {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .service-card {
+        min-height: auto;
+    }
+
+    .guide-final-cta {
+        border-radius: 0;
+        margin-bottom: 0;
+    }
+}
