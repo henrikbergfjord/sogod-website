@@ -237,6 +237,51 @@
                 grid-template-columns: 1fr;
             }
         }
+    
+        /* FINAL MOBILE HERO FIX */
+        @media (max-width: 760px) {
+            .hero {
+                min-height: 760px;
+            }
+
+            .hero-copy {
+                left: 7% !important;
+                right: 7% !important;
+                width: 86% !important;
+                max-width: 86% !important;
+                min-width: 86% !important;
+            }
+
+            .hero-copy h1 {
+                width: 100% !important;
+                max-width: 100% !important;
+                font-size: clamp(3.2rem, 13vw, 5.2rem) !important;
+                line-height: .94 !important;
+            }
+
+            .hero-copy > p:not(.eyebrow) {
+                display: block !important;
+                width: 100% !important;
+                min-width: 100% !important;
+                max-width: 100% !important;
+                font-size: 1.05rem !important;
+                line-height: 1.55 !important;
+                white-space: normal !important;
+                word-break: normal !important;
+                overflow-wrap: normal !important;
+            }
+        }
+
+        /* MONEY GUIDE PROMO */
+        .money-promo {
+            background: #0b2a20;
+            color: #fff;
+        }
+        .money-promo .eyebrow { color: #e2aa4d; }
+        .money-promo h2 { color: #fff; }
+        .money-promo p { color: rgba(255,255,255,.82); }
+        .money-promo .text-link { color: #efb85d; }
+
     </style>
 
     <!-- Microsoft Clarity -->
@@ -269,6 +314,9 @@
         <a href="#ride-experience">Transport</a>
         <a href="#location">Location</a>
         <a href="holiday-planner.html">Holiday Planner</a>
+        ·
+        <a href="money-guide.html">Money Guide</a>
+        <a href="money-guide.html">Money Guide</a>
         <a href="pages/contact.html">Contact</a>
         <a class="nav-cta" href="pages/booking.html">Book your stay</a>
     </nav>
@@ -806,6 +854,30 @@
                 Tell us who you are and what you hope to experience →
             </a>
 
+        </div>
+
+    </section>
+
+
+    <!-- MONEY & CURRENCY GUIDE -->
+    <section class="section story money-promo">
+
+        <div>
+            <p class="eyebrow">TRAVEL SMART</p>
+            <h2>Money in the Philippines. Spend smarter. Travel longer.</h2>
+        </div>
+
+        <div>
+            <p>
+                Learn practical ways to send money, use Philippine ATMs,
+                avoid unnecessary currency conversion, understand pesos
+                and get a feel for what everyday things may cost.
+            </p>
+
+            <a class="text-link" href="money-guide.html"
+               onclick="clarity('event','money_guide_home_click')">
+                Open the Money &amp; Currency Guide →
+            </a>
         </div>
 
     </section>
