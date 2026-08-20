@@ -9,13 +9,17 @@
 
     <meta
         name="description"
-        content="Plan your stay in Albay, Philippines with Sogod Stay. Explore airport pickup, scooter rental, jeepneys, tricycles, hidden beaches, Mayon Volcano, Boodle Fight dining, local culture and our free Holiday & Travel Planner."
+        content="Plan your stay in Albay, Philippines with Sogod Stay. Explore airport pickup, scooter rental, Mayon ATV, jeepneys, tricycles, hidden beaches, local food, Boodle Fight dining and our free Holiday & Travel Planner."
     >
 
     <link rel="stylesheet" href="assets/css/styles.css">
 
     <style>
-        /* HERO FIX — keeps the intro readable on top of the image */
+        /* =========================================================
+           HOMEPAGE REFINEMENT
+           Keeps hero text readable and transport images proportional.
+           ========================================================= */
+
         .hero {
             position: relative;
         }
@@ -26,90 +30,107 @@
             min-width: 0 !important;
         }
 
-        .hero-copy .eyebrow {
-            max-width: none;
-        }
-
         .hero-copy h1 {
             max-width: 520px;
         }
 
         .hero-copy > p:not(.eyebrow) {
-            max-width: 500px !important;
             width: auto !important;
-            font-size: 1.04rem;
-            line-height: 1.62;
+            max-width: 500px !important;
+            white-space: normal !important;
+            word-break: normal !important;
+            overflow-wrap: normal !important;
+            font-size: clamp(16px, 1.15vw, 20px);
+            line-height: 1.6;
         }
 
         .hero-copy .actions {
             flex-wrap: wrap;
         }
 
-        /* NEW LOCAL TRANSPORT SECTION */
-        .local-transport {
+        /* NEW EXPERIENCE / TRANSPORT FEATURE */
+
+        .ride-experience {
             background: #f3efe7;
         }
 
-        .transport-intro {
+        .ride-heading {
             display: grid;
-            grid-template-columns: .85fr 1.15fr;
-            gap: 38px;
+            grid-template-columns: 1fr auto;
+            gap: 24px;
             align-items: end;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
         }
 
-        .transport-intro h2 {
+        .ride-heading h2 {
             margin-bottom: 0;
         }
 
-        .transport-intro .lead {
-            margin: 0;
+        .ride-heading .ride-all-link {
+            white-space: nowrap;
         }
 
-        .transport-home-grid {
+        .ride-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 18px;
         }
 
-        .transport-home-card {
+        .ride-card {
             position: relative;
-            min-height: 390px;
+            display: block;
+            min-width: 0;
+            height: 430px;
             overflow: hidden;
             border-radius: 22px;
-            background: #123328;
-            text-decoration: none;
+            background: #102b22;
             color: white;
+            text-decoration: none;
             border: 1px solid rgba(16,43,34,.12);
+            box-shadow: 0 12px 28px rgba(16,43,34,.06);
         }
 
-        .transport-home-card img {
+        .ride-card img {
             position: absolute;
             inset: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            display: block;
+            object-fit: cover !important;
+            object-position: center center;
             transition: transform .35s ease;
         }
 
-        .transport-home-card::after {
+        .ride-card.atv img {
+            object-position: 52% center;
+        }
+
+        .ride-card.jeepney img {
+            object-position: 52% center;
+        }
+
+        .ride-card.tricycle img {
+            object-position: 50% center;
+        }
+
+        .ride-card::after {
             content: "";
             position: absolute;
             inset: 0;
             background:
                 linear-gradient(
                     180deg,
-                    rgba(8,28,21,.06) 10%,
-                    rgba(8,28,21,.20) 45%,
-                    rgba(8,28,21,.92) 100%
+                    rgba(7,28,20,.05) 10%,
+                    rgba(7,28,20,.18) 42%,
+                    rgba(7,28,20,.92) 100%
                 );
         }
 
-        .transport-home-card:hover img {
+        .ride-card:hover img {
             transform: scale(1.025);
         }
 
-        .transport-home-content {
+        .ride-card-content {
             position: absolute;
             z-index: 2;
             left: 24px;
@@ -117,40 +138,79 @@
             bottom: 24px;
         }
 
-        .transport-home-content .mini-label {
+        .ride-card-label {
             display: inline-block;
-            margin-bottom: 8px;
-            color: #efbf6b;
+            margin-bottom: 7px;
+            color: #efb85d;
             font-size: .68rem;
             font-weight: 900;
             letter-spacing: .12em;
         }
 
-        .transport-home-content h3 {
+        .ride-card h3 {
             margin: 0 0 8px;
             color: white;
-            font-size: clamp(1.8rem, 3vw, 2.7rem);
+            font-size: clamp(1.8rem, 2.6vw, 2.8rem);
+            line-height: 1;
         }
 
-        .transport-home-content p {
-            max-width: 560px;
+        .ride-card p {
+            max-width: 420px;
             margin: 0 0 15px;
-            color: rgba(255,255,255,.82);
+            color: rgba(255,255,255,.84);
             line-height: 1.5;
         }
 
-        .transport-home-content strong {
-            color: #efbf6b;
+        .ride-card strong {
+            color: #efb85d;
         }
 
-        @media (max-width: 900px) {
-            .transport-intro,
-            .transport-home-grid {
+        .ride-support-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            margin-top: 18px;
+            overflow: hidden;
+            border-radius: 18px;
+            background: rgba(16,43,34,.12);
+        }
+
+        .ride-support-strip div {
+            display: grid;
+            grid-template-columns: 34px 1fr;
+            gap: 12px;
+            align-items: start;
+            min-height: 92px;
+            padding: 18px;
+            background: rgba(255,255,255,.82);
+        }
+
+        .ride-support-strip span {
+            font-size: 1.45rem;
+        }
+
+        .ride-support-strip strong {
+            display: block;
+            margin-bottom: 3px;
+            font-size: .84rem;
+        }
+
+        .ride-support-strip small {
+            line-height: 1.4;
+            opacity: .7;
+        }
+
+        @media (max-width: 1020px) {
+            .ride-grid {
                 grid-template-columns: 1fr;
             }
 
-            .transport-home-card {
-                min-height: 340px;
+            .ride-card {
+                height: 380px;
+            }
+
+            .ride-support-strip {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -165,8 +225,16 @@
                 max-width: 100% !important;
             }
 
-            .transport-home-card {
-                min-height: 310px;
+            .ride-heading {
+                grid-template-columns: 1fr;
+            }
+
+            .ride-card {
+                height: 340px;
+            }
+
+            .ride-support-strip {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -198,7 +266,7 @@
     <nav>
         <a href="#stay">Stay</a>
         <a href="#experience">Experiences</a>
-        <a href="#local-transport">Transport</a>
+        <a href="#ride-experience">Transport</a>
         <a href="#location">Location</a>
         <a href="holiday-planner.html">Holiday Planner</a>
         <a href="pages/contact.html">Contact</a>
@@ -402,8 +470,8 @@
                     Day trips, viewpoints, nature and regional highlights.
                 </p>
 
-                <a class="text-link" href="guide.html#mayon-atv">
-                    Explore Mayon adventures →
+                <a class="text-link" href="atv.html">
+                    Explore Mayon ATV adventure →
                 </a>
             </article>
 
@@ -441,14 +509,14 @@
 
     </section>
 
-    <!-- LOCAL TRANSPORT -->
-    <section class="section local-transport" id="local-transport">
+    <!-- RIDE / TRANSPORT FEATURE -->
+    <section class="section ride-experience" id="ride-experience">
 
-        <div class="transport-intro">
+        <div class="ride-heading">
 
             <div>
                 <p class="eyebrow">
-                    LOCAL TRANSPORT · THE FILIPINO WAY
+                    LOCAL TRANSPORT &amp; ADVENTURE
                 </p>
 
                 <h2>
@@ -456,34 +524,66 @@
                 </h2>
             </div>
 
-            <p class="lead">
-                You do not always need a private car. Jeepneys and tricycles
-                are part of everyday life in the Philippines — affordable,
-                practical and a great way to experience how people actually move around.
-            </p>
+            <a class="text-link ride-all-link" href="guide.html">
+                View transport &amp; local services →
+            </a>
 
         </div>
 
-        <div class="transport-home-grid">
+        <div class="ride-grid">
 
             <a
-                class="transport-home-card"
+                class="ride-card atv"
+                href="atv.html"
+                onclick="if(typeof clarity==='function'){clarity('event','homepage_atv_click')}"
+            >
+                <img
+                    src="assets/images/home-atv.jpg"
+                    alt="Two travelers enjoying an ATV adventure near Mayon Volcano"
+                >
+
+                <div class="ride-card-content">
+                    <span class="ride-card-label">
+                        MAYON ATV ADVENTURE
+                    </span>
+
+                    <h3>
+                        Ride. Explore. Remember.
+                    </h3>
+
+                    <p>
+                        Take two ATVs into the volcanic landscape and turn
+                        Mayon into one of the most exciting days of your stay.
+                    </p>
+
+                    <strong>
+                        Explore ATV adventure →
+                    </strong>
+                </div>
+            </a>
+
+            <a
+                class="ride-card jeepney"
                 href="jeepney.html"
                 onclick="if(typeof clarity==='function'){clarity('event','homepage_jeepney_click')}"
             >
                 <img
-                    src="assets/images/jeepney-hero.jpg"
-                    alt="Colorful Philippine jeepney in Albay"
+                    src="assets/images/home-jeepney.jpg"
+                    alt="Colorful traditional Philippine jeepney in Albay"
                 >
 
-                <div class="transport-home-content">
-                    <span class="mini-label">ICONIC PHILIPPINE TRANSPORT</span>
+                <div class="ride-card-content">
+                    <span class="ride-card-label">
+                        A PHILIPPINE ICON
+                    </span>
 
-                    <h3>Ride a Jeepney</h3>
+                    <h3>
+                        Ride a Jeepney
+                    </h3>
 
                     <p>
-                        Colorful, shared and wonderfully Filipino. Learn how
-                        jeepneys work, what they cost and how to ride one without stress.
+                        Discover how post-war military jeeps became colorful
+                        rolling symbols of Filipino ingenuity and everyday life.
                     </p>
 
                     <strong>
@@ -493,23 +593,27 @@
             </a>
 
             <a
-                class="transport-home-card"
+                class="ride-card tricycle"
                 href="tricycle.html"
                 onclick="if(typeof clarity==='function'){clarity('event','homepage_tricycle_click')}"
             >
                 <img
-                    src="assets/images/tricycle-hero.jpg"
-                    alt="Philippine motorized tricycle in Albay"
+                    src="assets/images/home-tricycle.jpg"
+                    alt="Motorized Philippine tricycle on a local road in Albay"
                 >
 
-                <div class="transport-home-content">
-                    <span class="mini-label">SHORT LOCAL RIDES</span>
+                <div class="ride-card-content">
+                    <span class="ride-card-label">
+                        EVERYDAY LOCAL TRANSPORT
+                    </span>
 
-                    <h3>Take a Tricycle</h3>
+                    <h3>
+                        Take a Tricycle
+                    </h3>
 
                     <p>
-                        The easy local option for markets, restaurants and
-                        nearby trips. Learn what to expect and how to agree the fare.
+                        Quick, practical and part of daily Filipino life —
+                        ideal for markets, restaurants and nearby trips.
                     </p>
 
                     <strong>
@@ -517,6 +621,42 @@
                     </strong>
                 </div>
             </a>
+
+        </div>
+
+        <div class="ride-support-strip">
+
+            <div>
+                <span>⛰️</span>
+                <p>
+                    <strong>Explore Albay</strong>
+                    <small>Beaches, waterfalls, Mayon and unforgettable views.</small>
+                </p>
+            </div>
+
+            <div>
+                <span>🍴</span>
+                <p>
+                    <strong>Taste local flavors</strong>
+                    <small>Boodle Fight, markets and home-style Bicol food.</small>
+                </p>
+            </div>
+
+            <div>
+                <span>📷</span>
+                <p>
+                    <strong>Make memories</strong>
+                    <small>Adventure, relaxation and authentic local moments.</small>
+                </p>
+            </div>
+
+            <div>
+                <span>💬</span>
+                <p>
+                    <strong>We're here to help</strong>
+                    <small>Local support before, during and after your stay.</small>
+                </p>
+            </div>
 
         </div>
 
@@ -545,11 +685,7 @@
                 <span>🏙️</span>
                 <h3>Tabaco City</h3>
                 <p>Approx. 6 minutes</p>
-                <a
-                    href="https://maps.google.com/?q=Tabaco+City+Albay"
-                    target="_blank"
-                    rel="noopener"
-                >
+                <a href="https://maps.google.com/?q=Tabaco+City+Albay" target="_blank" rel="noopener">
                     View on Google Maps →
                 </a>
             </article>
@@ -558,11 +694,7 @@
                 <span>🍔</span>
                 <h3>McDonald's</h3>
                 <p>Approx. 7 minutes</p>
-                <a
-                    href="https://maps.google.com/?q=McDonalds+Tabaco+City"
-                    target="_blank"
-                    rel="noopener"
-                >
+                <a href="https://maps.google.com/?q=McDonalds+Tabaco+City" target="_blank" rel="noopener">
                     View location →
                 </a>
             </article>
@@ -571,11 +703,7 @@
                 <span>🍗</span>
                 <h3>Jollibee</h3>
                 <p>Approx. 8 minutes</p>
-                <a
-                    href="https://maps.google.com/?q=Jollibee+Tabaco+City"
-                    target="_blank"
-                    rel="noopener"
-                >
+                <a href="https://maps.google.com/?q=Jollibee+Tabaco+City" target="_blank" rel="noopener">
                     View location →
                 </a>
             </article>
@@ -584,11 +712,7 @@
                 <span>🛒</span>
                 <h3>Supermarkets</h3>
                 <p>Several nearby</p>
-                <a
-                    href="https://maps.google.com/?q=Supermarket+Tabaco+City"
-                    target="_blank"
-                    rel="noopener"
-                >
+                <a href="https://maps.google.com/?q=Supermarket+Tabaco+City" target="_blank" rel="noopener">
                     Find nearby →
                 </a>
             </article>
@@ -597,11 +721,7 @@
                 <span>🏦</span>
                 <h3>Banks &amp; ATMs</h3>
                 <p>BDO · BPI · LandBank</p>
-                <a
-                    href="https://maps.google.com/?q=ATM+Tabaco+City"
-                    target="_blank"
-                    rel="noopener"
-                >
+                <a href="https://maps.google.com/?q=ATM+Tabaco+City" target="_blank" rel="noopener">
                     Find nearby →
                 </a>
             </article>
@@ -610,11 +730,7 @@
                 <span>💊</span>
                 <h3>Pharmacy</h3>
                 <p>Mercury Drug and local pharmacies</p>
-                <a
-                    href="https://maps.google.com/?q=Mercury+Drug+Tabaco+City"
-                    target="_blank"
-                    rel="noopener"
-                >
+                <a href="https://maps.google.com/?q=Mercury+Drug+Tabaco+City" target="_blank" rel="noopener">
                     View location →
                 </a>
             </article>
@@ -623,9 +739,7 @@
                 <span>✈️</span>
                 <h3>Bicol International Airport</h3>
                 <p>Airport pickup can be arranged</p>
-                <a
-                    href="arrival.html"
-                >
+                <a href="arrival.html">
                     See airport pickup →
                 </a>
             </article>
@@ -634,9 +748,7 @@
                 <span>🌋</span>
                 <h3>Mayon Volcano</h3>
                 <p>One of Albay's most iconic experiences</p>
-                <a
-                    href="guide.html#mayon-atv"
-                >
+                <a href="atv.html">
                     Explore Mayon →
                 </a>
             </article>
@@ -668,6 +780,7 @@
     <section class="section story">
 
         <div>
+
             <p class="eyebrow">
                 WHO THIS IS FOR
             </p>
@@ -675,9 +788,11 @@
             <h2>
                 For people who want to feel a place, not just photograph it.
             </h2>
+
         </div>
 
         <div>
+
             <p>
                 We especially welcome travelers who are genuinely interested
                 in Filipino culture, local communities and meeting people with
@@ -690,6 +805,7 @@
             <a class="text-link" href="pages/contact.html">
                 Tell us who you are and what you hope to experience →
             </a>
+
         </div>
 
     </section>
@@ -698,6 +814,7 @@
     <section class="section story holiday-promo">
 
         <div>
+
             <p class="eyebrow">
                 FREE TRAVEL TOOL
             </p>
@@ -705,9 +822,11 @@
             <h2>
                 Turn public holidays into longer adventures.
             </h2>
+
         </div>
 
         <div>
+
             <p>
                 Explore public holidays across Europe and the Philippines,
                 find smart weeks to use fewer vacation days, check destination
@@ -718,6 +837,7 @@
             <a class="text-link" href="holiday-planner.html">
                 Open the Holiday &amp; Travel Planner →
             </a>
+
         </div>
 
     </section>
@@ -757,6 +877,8 @@
 
     <div>
         <a href="holiday-planner.html">Holiday Planner</a>
+        ·
+        <a href="atv.html">Mayon ATV</a>
         ·
         <a href="jeepney.html">Jeepney</a>
         ·
