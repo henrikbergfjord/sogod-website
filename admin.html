@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sogod Stay — Admin</title>
+
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <style>
+        .admin-page {
+            min-height: 100vh;
+            background: #f4f1eb;
+        }
+
+        .admin-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        .admin-header {
+            margin-bottom: 48px;
+        }
+
+        .admin-header h1 {
+            margin-bottom: 10px;
+        }
+
+        .admin-header p {
+            max-width: 650px;
+            color: #666;
+        }
+
+        .admin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .admin-card {
+            display: block;
+            padding: 28px;
+            background: white;
+            border-radius: 14px;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .admin-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.10);
+        }
+
+        .admin-card .icon {
+            font-size: 30px;
+            margin-bottom: 18px;
+        }
+
+        .admin-card h2 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .admin-card p {
+            margin: 0;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .admin-status {
+            margin-top: 50px;
+            padding: 24px;
+            background: #fff;
+            border-radius: 14px;
+        }
+
+        .admin-status strong {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .status-ok {
+            color: #227a3a;
+        }
+
+        .admin-footer {
+            margin-top: 60px;
+            color: #777;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .admin-wrap {
+                padding-top: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body class="admin-page">
+
+    <main class="admin-wrap">
+
+        <section class="admin-header">
+
+            <p class="eyebrow">
+                SOGOD STAY
+            </p>
+
+            <h1>
+                Admin Dashboard
+            </h1>
+
+            <p>
+                Internal shortcuts and website administration for Sogod Stay.
+            </p>
+
+        </section>
+
+        <section class="admin-grid">
+
+            <a
+                class="admin-card"
+                href="https://clarity.microsoft.com/"
+                target="_blank"
+                rel="noopener"
+            >
+                <div class="icon">📊</div>
+
+                <h2>
+                    Microsoft Clarity
+                </h2>
+
+                <p>
+                    Visitors, sessions, heatmaps, recordings and website insights.
+                </p>
+            </a>
+
+            <a
+                class="admin-card"
+                href="https://portal.azure.com/"
+                target="_blank"
+                rel="noopener"
+            >
+                <div class="icon">☁️</div>
+
+                <h2>
+                    Microsoft Azure
+                </h2>
+
+                <p>
+                    Manage hosting, Static Web App, Functions and website services.
+                </p>
+            </a>
+
+            <a
+                class="admin-card"
+                href="https://www.sogod.no/"
+                target="_blank"
+                rel="noopener"
+            >
+                <div class="icon">🌴</div>
+
+                <h2>
+                    Open Sogod Stay
+                </h2>
+
+                <p>
+                    Open the live public website.
+                </p>
+            </a>
+
+            <a
+                class="admin-card"
+                href="pages/booking.html"
+                target="_blank"
+            >
+                <div class="icon">🧳</div>
+
+                <h2>
+                    Booking Form
+                </h2>
+
+                <p>
+                    Test the Plan Your Stay booking form.
+                </p>
+            </a>
+
+            <a
+                class="admin-card"
+                href="pages/contact.html"
+                target="_blank"
+            >
+                <div class="icon">✉️</div>
+
+                <h2>
+                    Contact Form
+                </h2>
+
+                <p>
+                    Test the website contact form.
+                </p>
+            </a>
+
+        </section>
+
+        <section class="admin-status">
+
+            <h2>
+                Website status
+            </h2>
+
+            <p>
+                <strong>Website:</strong>
+                <span class="status-ok">● Online</span>
+            </p>
+
+            <p>
+                <strong>Analytics:</strong>
+                <span class="status-ok">● Microsoft Clarity active</span>
+            </p>
+
+            <p>
+                <strong>Booking email:</strong>
+                Setup in progress
+            </p>
+
+        </section>
+
+        <div class="admin-footer">
+            Sogod Stay Administration
+        </div>
+
+    </main>
+
+</body>
+
+</html>
