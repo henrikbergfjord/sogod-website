@@ -1,0 +1,1 @@
+document.querySelectorAll(".track-beach").forEach((element)=>{element.addEventListener("click",()=>{if(typeof clarity==="function"){clarity("event","beaches_action");}});});document.querySelectorAll(".track-food").forEach((element)=>{element.addEventListener("click",()=>{if(typeof clarity==="function"){clarity("event","food_culture_action");}});});
