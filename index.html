@@ -282,6 +282,66 @@
         .money-promo p { color: rgba(255,255,255,.82); }
         .money-promo .text-link { color: #efb85d; }
 
+    
+        /* =========================================================
+           FINAL HERO TEXT FIX — DESKTOP EDGE + MOBILE
+           Overrides older layout rules from styles.css.
+           ========================================================= */
+        body .hero .hero-copy {
+            display: block !important;
+            grid-template-columns: none !important;
+            grid-template-rows: none !important;
+            column-count: 1 !important;
+            width: 560px !important;
+            min-width: 560px !important;
+            max-width: 560px !important;
+        }
+
+        body .hero .hero-copy > p:not(.eyebrow) {
+            display: block !important;
+            float: none !important;
+            position: static !important;
+            box-sizing: border-box !important;
+            width: 500px !important;
+            min-width: 500px !important;
+            max-width: 500px !important;
+            inline-size: 500px !important;
+            max-inline-size: 500px !important;
+            white-space: normal !important;
+            word-break: normal !important;
+            overflow-wrap: normal !important;
+            writing-mode: horizontal-tb !important;
+            text-orientation: mixed !important;
+            font-size: 17px !important;
+            line-height: 1.58 !important;
+        }
+
+        body .hero .hero-copy .actions {
+            display: flex !important;
+            width: auto !important;
+            max-width: 520px !important;
+        }
+
+        @media (max-width: 760px) {
+            body .hero .hero-copy {
+                display: block !important;
+                left: 7% !important;
+                right: auto !important;
+                width: 86% !important;
+                min-width: 86% !important;
+                max-width: 86% !important;
+            }
+
+            body .hero .hero-copy > p:not(.eyebrow) {
+                width: 100% !important;
+                min-width: 100% !important;
+                max-width: 100% !important;
+                inline-size: 100% !important;
+                max-inline-size: 100% !important;
+                font-size: 16px !important;
+            }
+        }
+
     </style>
 
     <!-- Microsoft Clarity -->

@@ -1,16 +1,13 @@
-SOGOD STAY — MONEY GUIDE UPDATE
+SOGOD STAY DISPLAY FIX
 
 Replace:
-- index.html
+1. index.html
+2. assets/css/adventure-transport.css
+3. assets/images/atv-hero.jpg
 
-Add:
-- money-guide.html
-- assets/images/money-guide-hero.jpg
+atv.html is included for convenience but does not need to change if your current version is the latest one.
 
-The package also includes the three current transport images for convenience.
-
-Important:
-- Keep your existing assets/css/styles.css.
-- The new index contains an extra mobile hero override to fix the narrow vertical paragraph shown on phones.
-- Microsoft Clarity project ID y4c5fg1ysl is included on the Money Guide.
-- Currency conversion uses a public live-rate endpoint and displays an error instead of making up a rate if unavailable.
+Important after upload:
+- In Edge press Ctrl+F5 (Windows) or Cmd+Shift+R on Mac to force a hard refresh.
+- The homepage fix deliberately overrides older desktop rules in styles.css.
+- The ATV image is now cropped to 16:9 first and then resized uniformly, rather than stretched.

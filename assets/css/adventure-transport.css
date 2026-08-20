@@ -189,3 +189,31 @@
     .tip-grid { grid-template-columns:1fr; }
     .detail-cta { margin-bottom:0; border-radius:0; }
 }
+
+
+/* FINAL ATV HERO IMAGE FIX */
+.detail-hero {
+    height: clamp(560px, 62vh, 760px) !important;
+    min-height: 560px !important;
+    max-height: 760px !important;
+}
+
+.detail-hero > img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: 58% 48% !important;
+    transform: none !important;
+    max-width: none !important;
+}
+
+@media (max-width: 760px) {
+    .detail-hero {
+        height: 620px !important;
+        min-height: 620px !important;
+    }
+
+    .detail-hero > img {
+        object-position: 62% center !important;
+    }
+}
