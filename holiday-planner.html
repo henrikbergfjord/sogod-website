@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holiday & Travel Planner — Sogod Stay</title>
+  <meta name="description" content="Plan your annual leave around public holidays, compare travel dates, check destination weather and create a printable holiday plan.">
+  <meta name="robots" content="index,follow">
+
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/holiday-planner.css">
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "y4c5fg1ysl");
+  </script>
+</head>
+
+<body class="planner-page">
+  <header class="planner-header">
+    <a class="planner-brand" href="index.html">
+      <span>SOGOD STAY</span>
+      <small>Experience the Real Philippines</small>
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="pages/booking.html">Plan your stay</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="planner-hero">
+      <div class="planner-shell hero-grid">
+        <div>
+          <p class="eyebrow">HOLIDAY & TRAVEL PLANNER</p>
+          <h1>Turn public holidays into longer adventures.</h1>
+          <p class="hero-lead">Choose your home country, find the smartest weeks to use annual leave, explore a destination and create a clean travel plan without ads, pop-ups or redirects.</p>
+          <div class="hero-badges">
+            <span>✓ Public holidays</span>
+            <span>✓ ISO week numbers</span>
+            <span>✓ Leave-day optimizer</span>
+            <span>✓ Weather & travel guidance</span>
+          </div>
+        </div>
+        <aside class="hero-tip-card">
+          <span class="tip-kicker">SMART LEAVE IDEA</span>
+          <strong id="heroSmartResult">Choose a country to find your best leave opportunities.</strong>
+          <p>We look for weekday public holidays and show how many vacation days you may need for a nine-day break.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="planner-shell planner-controls" aria-label="Planner controls">
+      <div class="control-block country-control">
+        <div class="control-heading">
+          <div>
+            <span class="micro-label">1 · HOME COUNTRY</span>
+            <h2>Show public holidays</h2>
+          </div>
+          <div class="selected-country" id="selectedCountryLabel">Norway</div>
+        </div>
+        <div id="countryButtons" class="country-buttons"></div>
+      </div>
+
+      <div class="control-block calendar-nav-block">
+        <div class="month-nav">
+          <button id="prevMonth" class="icon-btn" type="button" aria-label="Previous month">←</button>
+          <div class="month-title-wrap">
+            <button id="monthTitle" class="month-title" type="button" aria-label="Jump to current month"></button>
+            <span id="holidayCount" class="month-subtitle"></span>
+          </div>
+          <button id="nextMonth" class="icon-btn" type="button" aria-label="Next month">→</button>
+        </div>
+        <div class="year-controls">
+          <label>
+            Month
+            <select id="monthSelect"></select>
+          </label>
+          <label>
+            Year
+            <select id="yearSelect"></select>
+          </label>
+          <button id="todayBtn" class="soft-btn" type="button">Today</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="planner-shell main-grid">
+      <div class="calendar-panel card-panel">
+        <div class="calendar-actions no-print">
+          <button id="copyCalendar" class="soft-btn" type="button">Copy month</button>
+          <button id="printCalendar" class="soft-btn" type="button">Export / PDF</button>
+        </div>
+        <div class="calendar-scroll">
+          <div class="calendar-head" aria-hidden="true">
+            <div class="week-head">Wk</div>
+            <div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div><div>Sun</div>
+          </div>
+          <div id="calendarGrid" class="calendar-grid"></div>
+        </div>
+        <div class="calendar-legend">
+          <span><i class="dot holiday-dot"></i> Public holiday</span>
+          <span><i class="dot today-dot"></i> Today</span>
+          <span><i class="dot weekend-dot"></i> Weekend</span>
+        </div>
+      </div>
+
+      <aside class="smart-panel card-panel">
+        <p class="micro-label">SMART LEAVE</p>
+        <h2>Make your days off work harder.</h2>
+        <p class="muted">A nine-day break normally uses five weekdays. Public holidays can reduce the number of annual-leave days you need.</p>
+        <div id="smartLeaveResults" class="smart-results"></div>
+      </aside>
+    </section>
+
+    <section class="planner-shell travel-section">
+      <div class="section-heading-row">
+        <div>
+          <p class="eyebrow">TRAVEL WINDOW</p>
+          <h2>Where are you thinking of going?</h2>
+          <p class="section-copy">Search a destination to see current conditions, a short forecast and practical guidance for planning your trip.</p>
+        </div>
+      </div>
+
+      <div class="destination-search no-print">
+        <input id="destinationInput" type="search" placeholder="Try: Albay, Manila, Rome, Paris, Barcelona…" autocomplete="off">
+        <button id="destinationSearchBtn" class="primary-btn" type="button">Explore destination</button>
+      </div>
+
+      <div id="destinationStatus" class="destination-status" aria-live="polite"></div>
+
+      <div class="travel-grid">
+        <article class="weather-card card-panel">
+          <div class="weather-topline">
+            <div>
+              <p class="micro-label">DESTINATION WEATHER</p>
+              <h3 id="destinationName">Albay, Philippines</h3>
+            </div>
+            <div id="currentTemp" class="current-temp">—</div>
+          </div>
+          <div id="weatherSummary" class="weather-summary">Search a destination to load weather.</div>
+          <div id="forecastStrip" class="forecast-strip"></div>
+          <p class="data-note">Weather forecast powered by Open-Meteo. Forecasts are planning guidance, not guarantees.</p>
+        </article>
+
+        <article class="map-card card-panel">
+          <div class="map-heading">
+            <div>
+              <p class="micro-label">MAP</p>
+              <h3 id="mapTitle">Destination overview</h3>
+            </div>
+          </div>
+          <iframe id="destinationMap" title="Destination map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </article>
+
+        <article class="season-card card-panel">
+          <p class="micro-label">WHEN TO GO</p>
+          <h3>Balance weather, crowds and price.</h3>
+          <div id="seasonAdvice" class="advice-list"></div>
+          <p class="data-note">Price guidance is general seasonal advice, not live airfare pricing.</p>
+        </article>
+
+        <article class="flight-card card-panel">
+          <p class="micro-label">BOOKING STRATEGY</p>
+          <h3 id="flightHeading">Flying from Norway</h3>
+          <div id="flightAdvice" class="advice-list"></div>
+          <div class="flight-actions no-print">
+            <a id="googleFlightsLink" class="soft-btn link-btn" href="https://www.google.com/travel/flights" target="_blank" rel="noopener">Compare flights</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="planner-shell plan-summary card-panel" id="planSummary">
+      <div class="summary-heading">
+        <div>
+          <p class="eyebrow">YOUR PLAN</p>
+          <h2>Ready to save or share.</h2>
+        </div>
+        <div class="summary-actions no-print">
+          <button id="copyPlan" class="soft-btn" type="button">Copy plan</button>
+          <button id="printPlan" class="primary-btn" type="button">Save as PDF</button>
+        </div>
+      </div>
+      <div id="summaryContent" class="summary-content"></div>
+    </section>
+  </main>
+
+  <footer class="planner-footer">
+    <div><strong>Sogod Stay</strong><br><span>Sogod · Albay · Philippines</span></div>
+    <div><a href="index.html">Home</a> · <a href="pages/contact.html">Contact</a> · <a href="pages/booking.html">Plan your stay</a></div>
+    <div>Created &amp; developed by Henrik Bergfjord</div>
+  </footer>
+
+  <script src="assets/js/holiday-planner.js"></script>
+</body>
+</html>
