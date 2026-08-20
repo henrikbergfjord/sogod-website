@@ -1,13 +1,23 @@
-SOGOD STAY DISPLAY FIX
+SOGOD STAY — DISCOVER THE PHILIPPINES PACKAGE
 
 Replace:
-1. index.html
-2. assets/css/adventure-transport.css
-3. assets/images/atv-hero.jpg
+- index.html
 
-atv.html is included for convenience but does not need to change if your current version is the latest one.
+Add:
+- philippines.html
+- assets/css/philippines.css
+- assets/images/philippines-hero.jpg
 
-Important after upload:
-- In Edge press Ctrl+F5 (Windows) or Cmd+Shift+R on Mac to force a hard refresh.
-- The homepage fix deliberately overrides older desktop rules in styles.css.
-- The ATV image is now cropped to 16:9 first and then resized uniformly, rather than stretched.
+The updated index:
+- links to Philippines in the top navigation
+- adds a Discover the Philippines promo section
+- preserves Money Guide and Holiday Planner links
+- includes the stronger Edge/Mac hero-text override
+
+The Philippines page includes Microsoft Clarity project y4c5fg1ysl.
+
+Official factual references used in the page:
+- Department of Tourism: 7,641 islands
+- Philippine Statistics Authority: 112,729,484 population (2024 POPCEN)
+- 1987 Constitution: Filipino and English official languages
+- Bangko Sentral ng Pilipinas economic materials for remittances / BPO context
