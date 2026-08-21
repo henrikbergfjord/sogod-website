@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Plan your stay — Sogod Stay</title>
+    <title>Plan Your Stay — Sogod Stay</title>
 
     <meta
         name="description"
-        content="Plan your stay at Sogod Stay in Albay, Philippines. Tell us about your trip, airport pickup, scooter rental, local transport, day trips, overnight excursions and cultural experiences."
+        content="Build your Sogod Stay in Albay. Choose airport transfers, guide services, scooter rental, Mayon ATV, beaches, Boodle Fight, food experiences and more, with a live price estimate in PHP and your currency."
     >
 
     <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/booking.css">
 
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            c[a]=c[a]||function(){
+                (c[a].q=c[a].q||[]).push(arguments)
+            };
             t=l.createElement(r);
             t.async=1;
             t.src="https://www.clarity.ms/tag/"+i;
@@ -26,240 +30,441 @@
     </script>
 </head>
 
-<body class="inner-page">
+<body class="inner-page booking-page">
 
-    <header class="site-header">
-        <a class="brand" href="../index.html">
-            SOGOD STAY
-            <span>Experience the Real Philippines</span>
-        </a>
+<header class="site-header">
+    <a class="brand" href="../index.html">
+        SOGOD STAY
+        <span>Experience the Real Philippines</span>
+    </a>
 
-        <nav>
-            <a href="../index.html">Home</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="../guide.html">Guide</a>
+        <a href="../beaches.html">Beaches</a>
+        <a href="../food-culture.html">Food &amp; Culture</a>
+        <a href="../holiday-planner.html">Holiday Planner</a>
+    </nav>
+</header>
 
-    <main class="form-wrap">
+<main class="booking-shell">
 
-        <div class="form-intro">
-            <p class="eyebrow">PLAN YOUR STAY</p>
+    <section class="booking-intro">
+        <p class="eyebrow">PLAN YOUR STAY</p>
 
-            <h1>Tell us about your trip.</h1>
+        <h1>Build the trip you actually want.</h1>
 
-            <p>
-                There is no fixed package. Tell us who you are, what you want
-                to experience and how much help you would like. We will use
-                your answers to shape a personal proposal.
-            </p>
+        <p>
+            Choose the services and experiences that interest you. Your estimate
+            updates instantly in Philippine pesos and, if you choose, in your own currency.
+            Nothing is charged on this page.
+        </p>
+
+        <div class="booking-badges">
+            <span>✓ Live estimate</span>
+            <span>✓ Flexible quantities</span>
+            <span>✓ No fixed package</span>
+            <span>✓ Final price confirmed before booking</span>
         </div>
+    </section>
 
-        <form id="bookingForm" class="booking-form">
+    <div class="booking-layout">
 
-            <div class="grid two">
+        <form id="bookingForm" class="booking-form" novalidate>
+
+            <section class="form-section">
+                <div class="section-kicker">1 · ABOUT YOU</div>
+
+                <div class="grid two">
+                    <label>
+                        Full name
+                        <input id="fullName" type="text" name="name" required>
+                    </label>
+
+                    <label>
+                        Email
+                        <input id="email" type="email" name="email" required>
+                    </label>
+                </div>
+
+                <div class="grid two">
+                    <label>
+                        Country
+                        <input id="country" type="text" name="country" placeholder="Norway">
+                    </label>
+
+                    <label>
+                        Phone / WhatsApp
+                        <input id="phone" type="tel" name="phone">
+                    </label>
+                </div>
+
+                <div class="date-grid">
+                    <label>
+                        Arrival date
+                        <input id="arrivalDate" type="date" name="arrival">
+                    </label>
+
+                    <label>
+                        Departure date
+                        <input id="departureDate" type="date" name="departure">
+                    </label>
+
+                    <label>
+                        Number of guests
+                        <input id="guests" type="number" name="guests" min="1" max="20" value="2">
+                    </label>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <div class="section-kicker">2 · TRANSPORT &amp; PRACTICAL HELP</div>
+
+                <div class="choice-list">
+
+                    <label class="choice-row">
+                        <input type="checkbox" class="service-check" data-service="airport_pickup">
+                        <span class="choice-icon">✈️</span>
+                        <span class="choice-copy">
+                            <strong>Airport pickup</strong>
+                            <small>Bicol International Airport → Sogod Stay · up to 4 guests</small>
+                        </span>
+                        <span class="choice-price">₱5,000</span>
+                    </label>
+
+                    <label class="choice-row">
+                        <input type="checkbox" class="service-check" data-service="airport_dropoff">
+                        <span class="choice-icon">🧳</span>
+                        <span class="choice-copy">
+                            <strong>Airport drop-off</strong>
+                            <small>Sogod Stay → Bicol International Airport · up to 4 guests</small>
+                        </span>
+                        <span class="choice-price">₱5,000</span>
+                    </label>
+
+                    <label class="choice-row has-qty">
+                        <input type="checkbox" class="service-check" data-service="scooter">
+                        <span class="choice-icon">🛵</span>
+                        <span class="choice-copy">
+                            <strong>Scooter rental</strong>
+                            <small>Planning estimate per day</small>
+                        </span>
+                        <span class="choice-price">₱500/day</span>
+                        <span class="qty-wrap">
+                            <span>Days</span>
+                            <input type="number" class="service-qty" data-qty-for="scooter" min="1" max="30" value="1">
+                        </span>
+                    </label>
+
+                    <label class="choice-row">
+                        <input type="checkbox" class="service-check" data-service="shopping_quick">
+                        <span class="choice-icon">🛒</span>
+                        <span class="choice-copy">
+                            <strong>Shopping / local errand help</strong>
+                            <small>Up to 2 hours · purchases paid separately</small>
+                        </span>
+                        <span class="choice-price">₱400</span>
+                    </label>
+
+                    <label class="choice-row">
+                        <input type="checkbox" class="service-check" data-service="shopping_halfday">
+                        <span class="choice-icon">🧺</span>
+                        <span class="choice-copy">
+                            <strong>Half-day practical help</strong>
+                            <small>Shopping, market or local errands</small>
+                        </span>
+                        <span class="choice-price">₱700</span>
+                    </label>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <div class="section-kicker">3 · GUIDE &amp; LOCAL DAYS</div>
+
+                <div class="choice-list">
+
+                    <label class="choice-row has-qty">
+                        <input type="checkbox" class="service-check" data-service="guide_day">
+                        <span class="choice-icon">🧭</span>
+                        <span class="choice-copy">
+                            <strong>Personal local guide</strong>
+                            <small>Flexible local help and exploring · per day</small>
+                        </span>
+                        <span class="choice-price">₱1,000/day</span>
+                        <span class="qty-wrap">
+                            <span>Days</span>
+                            <input type="number" class="service-qty" data-qty-for="guide_day" min="1" max="6" value="1">
+                        </span>
+                    </label>
+
+                    <label class="choice-row">
+                        <input type="checkbox" class="service-check" data-service="guide_week">
+                        <span class="choice-icon">🗺️</span>
+                        <span class="choice-copy">
+                            <strong>Local guide · 7 days</strong>
+                            <small>Weekly planning rate</small>
+                        </span>
+                        <span class="choice-price">₱6,000</span>
+                    </label>
+
+                    <label class="choice-row">
+                        <input type="checkbox" class="service-check" data-service="local_driver_day">
+                        <span class="choice-icon">🚙</span>
+                        <span class="choice-copy">
+                            <strong>Private local driver / car</strong>
+                            <small>Planning estimate for a day · route confirmed first</small>
+                        </span>
+                        <span class="choice-price">₱3,000</span>
+                    </label>
+
+                    <label class="choice-row">
+                        <input type="checkbox" class="service-check" data-service="tricycle_halfday">
+                        <span class="choice-icon">🛺</span>
+                        <span class="choice-copy">
+                            <strong>Local tricycle · half day</strong>
+                            <small>For nearby practical trips and local exploring</small>
+                        </span>
+                        <span class="choice-price">₱800</span>
+                    </label>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <div class="section-kicker">4 · SEA, MAYON &amp; ADVENTURE</div>
+
+                <div class="choice-list">
+
+                    <label class="choice-row">
+                        <input type="checkbox" class="service-check" data-service="banca_halfday">
+                        <span class="choice-icon">🛶</span>
+                        <span class="choice-copy">
+                            <strong>Traditional banca boat · half day</strong>
+                            <small>Boat + local boatman · route, fuel and conditions confirmed</small>
+                        </span>
+                        <span class="choice-price">from ₱2,500</span>
+                    </label>
+
+                    <label class="choice-row">
+                        <input type="checkbox" class="service-check" data-service="banca_fullday">
+                        <span class="choice-icon">🏝️</span>
+                        <span class="choice-copy">
+                            <strong>Private banca boat · longer outing</strong>
+                            <small>Planning estimate for a longer sea day</small>
+                        </span>
+                        <span class="choice-price">from ₱4,000</span>
+                    </label>
+
+                    <label class="choice-row">
+                        <input type="checkbox" class="service-check" data-service="atv_grassland">
+                        <span class="choice-icon">🏁</span>
+                        <span class="choice-copy">
+                            <strong>Mayon ATV · Grassland Trail</strong>
+                            <small>Approx. 20–30 minutes</small>
+                        </span>
+                        <span class="choice-price">₱500</span>
+                    </label>
+
+                    <label class="choice-row">
+                        <input type="checkbox" class="service-check" data-service="atv_cagsawa">
+                        <span class="choice-icon">🌋</span>
+                        <span class="choice-copy">
+                            <strong>Mayon ATV · Cagsawa Forest Trail</strong>
+                            <small>Approx. 50–60 minutes</small>
+                        </span>
+                        <span class="choice-price">₱950</span>
+                    </label>
+
+                    <label class="choice-row">
+                        <input type="checkbox" class="service-check" data-service="atv_greenlava">
+                        <span class="choice-icon">🌿</span>
+                        <span class="choice-copy">
+                            <strong>Mayon ATV · Green Lava Trail</strong>
+                            <small>Approx. 2–2.5 hours</small>
+                        </span>
+                        <span class="choice-price">₱1,850</span>
+                    </label>
+
+                    <label class="choice-row">
+                        <input type="checkbox" class="service-check" data-service="atv_blacklava">
+                        <span class="choice-icon">🖤</span>
+                        <span class="choice-copy">
+                            <strong>Mayon ATV · Black Lava Trail</strong>
+                            <small>Approx. 2–3 hours</small>
+                        </span>
+                        <span class="choice-price">₱2,250</span>
+                    </label>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <div class="section-kicker">5 · FOOD &amp; CULTURE</div>
+
+                <div class="choice-list">
+
+                    <label class="choice-row has-qty">
+                        <input type="checkbox" class="service-check" data-service="boodle">
+                        <span class="choice-icon">🍽️</span>
+                        <span class="choice-copy">
+                            <strong>Boodle Fight experience</strong>
+                            <small>Banana-leaf communal feast · planning estimate per guest</small>
+                        </span>
+                        <span class="choice-price">₱750/person</span>
+                        <span class="qty-wrap">
+                            <span>Guests</span>
+                            <input type="number" class="service-qty" data-qty-for="boodle" min="2" max="20" value="2">
+                        </span>
+                    </label>
+
+                    <label class="choice-row">
+                        <input type="checkbox" class="service-check" data-service="food_day">
+                        <span class="choice-icon">🌶️</span>
+                        <span class="choice-copy">
+                            <strong>Bicol food &amp; market day</strong>
+                            <small>Local guide / market help · food paid separately</small>
+                        </span>
+                        <span class="choice-price">₱1,000</span>
+                    </label>
+
+                    <label class="choice-row">
+                        <input type="checkbox" class="service-check" data-service="beach_day_help">
+                        <span class="choice-icon">🌴</span>
+                        <span class="choice-copy">
+                            <strong>Beach &amp; island planning help</strong>
+                            <small>Local coordination before your day out</small>
+                        </span>
+                        <span class="choice-price">₱500</span>
+                    </label>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <div class="section-kicker">6 · WHAT ARE YOU INTERESTED IN?</div>
+
+                <div class="interest-grid">
+                    <label><input type="checkbox" name="interest" value="Local culture & people"> Local culture &amp; people</label>
+                    <label><input type="checkbox" name="interest" value="Beaches & islands"> Beaches &amp; islands</label>
+                    <label><input type="checkbox" name="interest" value="Nature & waterfalls"> Nature &amp; waterfalls</label>
+                    <label><input type="checkbox" name="interest" value="Mayon & sightseeing"> Mayon &amp; sightseeing</label>
+                    <label><input type="checkbox" name="interest" value="Food & markets"> Food &amp; markets</label>
+                    <label><input type="checkbox" name="interest" value="Boodle Fight"> Boodle Fight</label>
+                    <label><input type="checkbox" name="interest" value="Remote work / longer stay"> Remote work / longer stay</label>
+                    <label><input type="checkbox" name="interest" value="Local life / markets"> Everyday local life</label>
+                </div>
+            </section>
+
+            <section class="form-section">
                 <label>
-                    Full name
-                    <input type="text" name="name" required>
+                    Tell us who you are and what kind of trip you are hoping for
+                    <textarea
+                        id="tripMessage"
+                        name="message"
+                        rows="6"
+                        placeholder="A little about yourselves, what you enjoy, what you would love to experience, and anything we should know..."
+                    ></textarea>
                 </label>
 
                 <label>
-                    Email
-                    <input type="email" name="email" required>
+                    Anything else?
+                    <textarea id="anythingElse" name="anythingElse" rows="4"></textarea>
                 </label>
-            </div>
+            </section>
 
-            <div class="grid two">
-                <label>
-                    Country
-                    <input type="text" name="country">
-                </label>
-
-                <label>
-                    Phone / WhatsApp
-                    <input type="tel" name="phone">
-                </label>
-            </div>
-
-            <div class="grid three">
-                <label>
-                    Arrival date
-                    <input type="date" name="arrival">
-                </label>
-
-                <label>
-                    Departure date
-                    <input type="date" name="departure">
-                </label>
-
-                <label>
-                    Number of guests
-                    <input type="number" min="1" name="guests">
-                </label>
-            </div>
-
-            <fieldset>
-                <legend>How can we help?</legend>
-
-                <label>
-                    <input
-                        type="checkbox"
-                        name="services"
-                        value="Airport pickup"
-                    >
-                    Airport pickup
-                </label>
-
-                <label>
-                    <input
-                        type="checkbox"
-                        name="services"
-                        value="Airport dropoff"
-                    >
-                    Airport drop-off
-                </label>
-
-                <label>
-                    <input
-                        type="checkbox"
-                        name="services"
-                        value="Scooter rental"
-                    >
-                    Scooter rental
-                </label>
-
-                <label>
-                    <input
-                        type="checkbox"
-                        name="services"
-                        value="Local tricycle/car"
-                    >
-                    Local tricycle or car transport
-                </label>
-
-                <label>
-                    <input
-                        type="checkbox"
-                        name="services"
-                        value="Day trips"
-                    >
-                    Day trips
-                </label>
-
-                <label>
-                    <input
-                        type="checkbox"
-                        name="services"
-                        value="Overnight excursions"
-                    >
-                    Overnight excursions
-                </label>
-
-                <label>
-                    <input
-                        type="checkbox"
-                        name="services"
-                        value="Guide"
-                    >
-                    Local guide
-                </label>
-            </fieldset>
-
-            <fieldset>
-                <legend>What are you interested in?</legend>
-
-                <label>
-                    <input
-                        type="checkbox"
-                        name="interests"
-                        value="Culture"
-                    >
-                    Local culture &amp; people
-                </label>
-
-                <label>
-                    <input
-                        type="checkbox"
-                        name="interests"
-                        value="Beaches"
-                    >
-                    Beaches &amp; islands
-                </label>
-
-                <label>
-                    <input
-                        type="checkbox"
-                        name="interests"
-                        value="Nature"
-                    >
-                    Nature &amp; waterfalls
-                </label>
-
-                <label>
-                    <input
-                        type="checkbox"
-                        name="interests"
-                        value="Mayon"
-                    >
-                    Mayon &amp; sightseeing
-                </label>
-
-                <label>
-                    <input
-                        type="checkbox"
-                        name="interests"
-                        value="Food"
-                    >
-                    Food &amp; markets
-                </label>
-
-                <label>
-                    <input
-                        type="checkbox"
-                        name="interests"
-                        value="Remote work"
-                    >
-                    Remote work / longer stay
-                </label>
-            </fieldset>
-
-            <label>
-                Tell us who you are and what kind of trip you are hoping for
-
-                <textarea
-                    name="about"
-                    rows="6"
-                    placeholder="A little about yourselves, what you enjoy, what you would love to experience, and anything we should know..."
-                ></textarea>
-            </label>
-
-            <label>
-                Anything else?
-
-                <textarea
-                    name="message"
-                    rows="4"
-                ></textarea>
-            </label>
-
-            <button class="btn primary" type="submit">
-                Prepare email request
+            <button class="btn primary booking-submit" type="submit">
+                PREPARE EMAIL REQUEST
             </button>
 
             <p class="form-note">
-                The form prepares an email to Henrik. No payment is taken on
-                this page.
+                The form currently prepares an email request. No payment is taken on this page.
+                Your final price is confirmed before any service is arranged.
             </p>
 
         </form>
-    </main>
 
-    <footer>
-        <div>
-            Created &amp; developed by Henrik Bergfjord
-        </div>
-    </footer>
+        <aside class="estimate-card" id="estimateCard">
 
-    <script src="../assets/js/forms.js"></script>
+            <div class="estimate-sticky">
+                <p class="eyebrow">YOUR LIVE ESTIMATE</p>
+
+                <h2>Your trip so far</h2>
+
+                <div class="currency-control">
+                    <label for="currencySelect">Show estimate in</label>
+
+                    <select id="currencySelect">
+                        <option value="PHP">PHP — Philippine peso</option>
+                        <option value="NOK">NOK — Norwegian krone</option>
+                        <option value="EUR">EUR — Euro</option>
+                        <option value="USD">USD — US dollar</option>
+                        <option value="GBP">GBP — British pound</option>
+                        <option value="SEK">SEK — Swedish krona</option>
+                        <option value="DKK">DKK — Danish krone</option>
+                        <option value="CHF">CHF — Swiss franc</option>
+                        <option value="AUD">AUD — Australian dollar</option>
+                        <option value="CAD">CAD — Canadian dollar</option>
+                        <option value="SGD">SGD — Singapore dollar</option>
+                        <option value="JPY">JPY — Japanese yen</option>
+                    </select>
+                </div>
+
+                <div id="estimateItems" class="estimate-items">
+                    <div class="empty-estimate">
+                        Choose services and experiences to build your estimate.
+                    </div>
+                </div>
+
+                <div class="estimate-total">
+                    <span>Estimated total</span>
+                    <strong id="totalPhp">₱0</strong>
+                    <strong id="totalConverted" class="converted-total"></strong>
+                </div>
+
+                <div class="stay-summary">
+                    <div>
+                        <span>Stay length</span>
+                        <strong id="stayNights">—</strong>
+                    </div>
+                    <div>
+                        <span>Guests</span>
+                        <strong id="guestSummary">2</strong>
+                    </div>
+                </div>
+
+                <p id="rateStatus" class="rate-status">
+                    Select another currency for a live reference conversion.
+                </p>
+
+                <div class="estimate-note">
+                    <strong>Planning estimate</strong>
+                    <p>
+                        Some rates are provisional and some third-party activity prices can change.
+                        We confirm availability and the final price before booking.
+                    </p>
+                </div>
+            </div>
+
+        </aside>
+
+    </div>
+
+</main>
+
+<footer>
+    <div>
+        <strong>Sogod Stay</strong><br>
+        <span>Sogod · Albay · Philippines</span>
+    </div>
+
+    <div>
+        <a href="../index.html">Home</a> ·
+        <a href="../guide.html">Guide &amp; Local Services</a> ·
+        <a href="../boodle-fight.html">Boodle Fight</a>
+    </div>
+
+    <div>Created &amp; developed by Henrik Bergfjord</div>
+</footer>
+
+<script src="../assets/js/forms.js"></script>
+<script src="../assets/js/booking-calculator.js"></script>
 
 </body>
 </html>
