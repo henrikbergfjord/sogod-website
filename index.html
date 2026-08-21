@@ -327,6 +327,15 @@
             y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "y4c5fg1ysl");
     </script>
+
+<style id="sogod-gallery-header-style">
+.sogod-private-link{color:#e7b55f!important;font-weight:800}
+.sogod-timebar{display:flex;gap:8px;align-items:center;margin-left:auto}
+.sogod-timechip{padding:6px 9px;border:1px solid rgba(255,255,255,.12);border-radius:9px;font-size:.65rem;line-height:1.2;color:rgba(255,255,255,.72);white-space:nowrap}
+.sogod-timechip b{color:#efbd68;margin-right:4px}
+@media(max-width:1080px){.sogod-timebar{display:none}}
+</style>
+
 </head>
 
 <body>
@@ -346,11 +355,12 @@
         <a href="holiday-planner.html">Holiday Planner</a>
         <a href="money-guide.html">Money Guide</a>
         <a href="philippines.html">Philippines</a>
+        <a class="sogod-private-link" href="gallery.html">🔒 Gallery</a>
         <a href="pages/contact.html">Contact</a>
         <a class="nav-cta" href="pages/booking.html">Book your stay</a>
     </nav>
 
-</header>
+<div class="sogod-timebar"><span class="sogod-timechip"><b>SOGOD</b><span id="sogod-header-time">--:--</span></span><span class="sogod-timechip"><b>BERGEN</b><span id="bergen-header-time">--:--</span></span></div></header>
 
 <main>
 
@@ -1044,6 +1054,19 @@
     </div>
 
 </footer>
+
+
+<script id="sogod-gallery-clock-script">
+(function(){
+ function tick(){
+  const n=new Date(),o={hour:'2-digit',minute:'2-digit',hour12:false};
+  const a=document.getElementById('sogod-header-time'),b=document.getElementById('bergen-header-time');
+  if(a)a.textContent=new Intl.DateTimeFormat('en-GB',{...o,timeZone:'Asia/Manila'}).format(n);
+  if(b)b.textContent=new Intl.DateTimeFormat('en-GB',{...o,timeZone:'Europe/Oslo'}).format(n);
+ }
+ tick();setInterval(tick,30000);
+})();
+</script>
 
 </body>
 </html>
