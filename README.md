@@ -1,3 +1,3 @@
-# SOGOD
+SOGOD – Stay · Experience · Local Help
 
-Official website for SOGOD in Albay, Philippines.
+Dorian Villa and Albay experiences.
