@@ -39,6 +39,8 @@ jobs:
         run: node scripts/sogod-v2-part-6d.mjs
       - name: Apply SOGOD Villa and experience visuals
         run: node scripts/sogod-v2-part-7-visuals.mjs
+      - name: Build approved Dorian Villa homepage
+        run: node scripts/sogod-v2-part-8-home.mjs
       - name: Validate SOGOD V2 JavaScript
         run: |
           node --check api/src/domain.js
