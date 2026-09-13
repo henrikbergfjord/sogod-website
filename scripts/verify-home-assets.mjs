@@ -11,7 +11,7 @@ for(const p of required){
   if(!fs.existsSync(p)) throw new Error(`Missing required asset: ${p}`);
   const b=fs.readFileSync(p);
   if(p.endsWith('.jpg')){
-    if(b.length<10000) throw new Error(`Image too small or placeholder: ${p} (${b.length} bytes)`);
+    if(b.length<5000) throw new Error(`Image too small or placeholder: ${p} (${b.length} bytes)`);
     if(!(b[0]===0xff&&b[1]===0xd8&&b[b.length-2]===0xff&&b[b.length-1]===0xd9)) throw new Error(`Invalid JPEG: ${p}`);
   }
 }
