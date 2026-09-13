@@ -19,13 +19,16 @@ jobs:
         with:
           submodules: true
           lfs: false
-      - name: Materialize SOGOD V2
-        run: |
-          node scripts/sogod-v2-part-1.mjs
-          node scripts/sogod-v2-part-2.mjs
-          node scripts/sogod-v2-part-3.mjs
-          node scripts/sogod-v2-part-4.mjs
-          node scripts/sogod-v2-part-5.mjs
+      - name: Materialize SOGOD V2 part 1
+        run: node scripts/sogod-v2-part-1.mjs
+      - name: Materialize SOGOD V2 part 2
+        run: node scripts/sogod-v2-part-2.mjs
+      - name: Materialize SOGOD V2 part 3
+        run: node scripts/sogod-v2-part-3.mjs
+      - name: Materialize SOGOD V2 part 4
+        run: node scripts/sogod-v2-part-4.mjs
+      - name: Materialize SOGOD V2 part 5
+        run: node scripts/sogod-v2-part-5.mjs
       - name: Validate SOGOD V2 JavaScript
         run: |
           node --check api/src/domain.js
