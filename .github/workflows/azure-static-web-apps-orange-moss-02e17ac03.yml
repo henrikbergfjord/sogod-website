@@ -23,8 +23,10 @@ jobs:
         run: node scripts/sogod-v2-part-1.mjs
       - name: Materialize SOGOD V2 part 2
         run: node scripts/sogod-v2-part-2.mjs
-      - name: Materialize SOGOD V2 part 3
-        run: node scripts/sogod-v2-part-3.mjs
+      - name: Materialize SOGOD V2 part 3A
+        run: node scripts/sogod-v2-part-3a.mjs
+      - name: Materialize SOGOD V2 part 3B
+        run: node scripts/sogod-v2-part-3b.mjs
       - name: Materialize SOGOD V2 part 4
         run: node scripts/sogod-v2-part-4.mjs
       - name: Materialize SOGOD V2 part 5
