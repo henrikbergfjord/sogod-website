@@ -43,6 +43,8 @@ jobs:
         run: node scripts/sogod-v2-part-8-home.mjs
       - name: Build clean final SOGOD homepage
         run: node scripts/sogod-v2-part-9-home-clean.mjs
+      - name: Verify final homepage assets
+        run: node scripts/verify-home-assets.mjs
       - name: Validate SOGOD V2 JavaScript
         run: |
           node --check api/src/domain.js
