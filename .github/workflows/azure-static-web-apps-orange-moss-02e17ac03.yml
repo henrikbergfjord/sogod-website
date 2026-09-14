@@ -49,6 +49,8 @@ jobs:
         run: node scripts/sogod-v2-part-12-stay-premium.mjs
       - name: Build premium SOGOD Experiences page
         run: node scripts/sogod-v2-part-13-experiences-premium.mjs
+      - name: Build SOGOD experience detail pages
+        run: node scripts/sogod-v2-part-14-experience-details.mjs
       - name: Verify final homepage assets
         run: node scripts/verify-home-assets.mjs
       - name: Validate SOGOD V2 JavaScript
