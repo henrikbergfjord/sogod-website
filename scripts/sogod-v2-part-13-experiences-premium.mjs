@@ -1,0 +1,89 @@
+import fs from 'node:fs';
+
+const html = `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#062e27">
+<title>Experiences in Albay · SOGOD</title>
+<meta name="description" content="Discover Albay with SOGOD — nature, food, local life, transport and practical help gathered around your stay.">
+<style>
+:root{--green:#062e27;--cream:#f5f0e6;--paper:#fffdf8;--ink:#18352f;--muted:#61726d;--gold:#e9b943;--line:#ded8ca}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}.wrap{width:min(1240px,calc(100% - 48px));margin:auto}
+.top{height:78px;display:flex;align-items:center;padding:0 max(24px,calc((100vw - 1240px)/2));background:rgba(5,45,37,.97);color:#fff;position:sticky;top:0;z-index:30;box-shadow:0 8px 28px rgba(0,0,0,.12)}
+.brand{font:30px/1 Georgia,"Times New Roman",serif;text-decoration:none}.brand small{display:block;margin-top:5px;font:7px/1 Arial,sans-serif;letter-spacing:3px;color:#e9bd55}
+.nav{margin-left:auto;display:flex;align-items:center;gap:30px}.nav a{font-size:13px;text-decoration:none}.nav .active{color:#f0c15d}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 24px;border-radius:28px;background:var(--gold);color:#16372f!important;text-decoration:none;font-size:13px;font-weight:800}
+.menu-btn{display:none;margin-left:auto;border:0;background:none;color:#fff;font-size:26px}
+.hero{background:var(--green);color:#fff;padding:54px 0 62px}.hero-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:54px;align-items:center}
+.eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#f0c15d;font-weight:850}.hero h1{font:clamp(48px,5.2vw,76px)/.98 Georgia,"Times New Roman",serif;margin:14px 0 18px;letter-spacing:-1px}
+.hero p{font-size:17px;line-height:1.65;color:rgba(255,255,255,.85);max-width:590px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.ghost{display:inline-flex;align-items:center;justify-content:center;padding:12px 22px;border:1px solid rgba(255,255,255,.58);border-radius:28px;text-decoration:none;font-size:13px;font-weight:750}
+.hero-photo{min-height:420px;border-radius:24px;background:linear-gradient(0deg,rgba(2,25,20,.15),rgba(2,25,20,.05)),url('/assets/images/atv-hero.jpg') center/cover no-repeat;box-shadow:0 28px 60px rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.13)}
+.intro{padding:62px 0 26px;text-align:center}.intro .eyebrow{color:#a57515}.intro h2{font:44px/1.08 Georgia,"Times New Roman",serif;margin:10px 0 12px}.intro p{max-width:760px;margin:0 auto;color:var(--muted);line-height:1.7}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding:26px 0 70px}.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 12px 28px rgba(37,58,50,.07);display:flex;flex-direction:column}
+.photo{height:220px;background-position:center;background-size:cover}.card-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}.kicker{font-size:10px;letter-spacing:2.2px;text-transform:uppercase;color:#a57515;font-weight:850}
+.card h3{font:27px/1.08 Georgia,"Times New Roman",serif;margin:7px 0 9px}.card p{font-size:14px;line-height:1.58;color:var(--muted);margin:0 0 16px}.card a{margin-top:auto;font-size:13px;font-weight:800;text-decoration:none;color:#865f12}
+.banner{background:linear-gradient(90deg,rgba(4,41,33,.88),rgba(4,41,33,.56)),url('/assets/images/beaches-hero.jpg') center 55%/cover no-repeat;color:#fff;padding:70px 0}.banner-box{max-width:680px}
+.banner h2{font:46px/1.08 Georgia,"Times New Roman",serif;margin:8px 0 12px}.banner p{font-size:16px;line-height:1.65;color:rgba(255,255,255,.86)}
+.trust{background:#fff;padding:26px 0;border-bottom:1px solid var(--line)}.trust-grid{display:grid;grid-template-columns:repeat(5,1fr)}.trust-item{text-align:center;padding:12px 16px;border-right:1px solid var(--line)}.trust-item:last-child{border-right:0}.trust-item strong{display:block;font-size:13px;margin:6px 0 3px}.trust-item span{font-size:11px;color:var(--muted);line-height:1.4}.ico{font-size:24px}
+.next{padding:68px 0 76px}.next-head{text-align:center;margin-bottom:28px}.next-head h2{font:42px/1.1 Georgia,"Times New Roman",serif;margin:8px 0}.next-head p{color:var(--muted)}.next-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.next-card{min-height:245px;border-radius:18px;overflow:hidden;position:relative;color:#fff;text-decoration:none;display:flex;align-items:flex-end;padding:22px;border:1px solid rgba(0,0,0,.06);box-shadow:0 14px 32px rgba(37,58,50,.10);background-size:cover;background-position:center}
+.next-card:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(2,28,23,.94),rgba(2,28,23,.14) 70%)}.next-card>div{position:relative;z-index:2}.next-card .tag{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#f0c15d;font-weight:850}.next-card h3{font:26px/1.08 Georgia,"Times New Roman",serif;margin:6px 0}.next-card p{font-size:12.5px;line-height:1.45;color:rgba(255,255,255,.84);margin:0}
+.stays,.villa{background-image:url('/assets/images/dorian-villa-clean-hero.jpg')}.villa{background-position:64% center}.help{background-image:url('/assets/images/connected-hero.jpg')}.plan{background-image:url('/assets/images/arrival-hero.jpg')}
+.footer{background:#052a23;color:#fff;padding:28px 0}.footer .wrap{display:flex;justify-content:space-between;gap:30px;align-items:end}.motto{font:italic 26px Georgia,"Times New Roman",serif;color:#e9b943}.fcopy{text-align:right;font-size:12px;color:rgba(255,255,255,.75);line-height:1.55}
+@media(max-width:980px){.hero-grid{grid-template-columns:1fr}.hero-photo{min-height:360px}.grid{grid-template-columns:repeat(2,1fr)}.next-grid{grid-template-columns:repeat(2,1fr)}.trust-grid{grid-template-columns:repeat(2,1fr)}.trust-item{border-bottom:1px solid var(--line)}}
+@media(max-width:760px){.wrap{width:min(100% - 32px,700px)}.top{height:66px;padding:0 16px}.nav{display:none;position:absolute;top:66px;left:0;right:0;background:#052d25;padding:14px 18px 22px;flex-direction:column;align-items:stretch;gap:0}.nav.open{display:flex}.nav a{padding:12px 5px;border-bottom:1px solid rgba(255,255,255,.08)}.nav .btn{margin-top:12px}.menu-btn{display:block}.hero{padding:42px 0}.hero h1{font-size:52px}.hero-photo{min-height:300px}.intro{padding-top:48px}.intro h2{font-size:37px}.grid{grid-template-columns:1fr;padding-bottom:52px}.photo{height:230px}.banner{padding:54px 0}.banner h2{font-size:38px}.trust-grid{grid-template-columns:1fr}.trust-item{border-right:0}.next{padding:54px 0}.next-grid{grid-template-columns:1fr}.next-card{min-height:280px}.footer .wrap{flex-direction:column;align-items:flex-start}.fcopy{text-align:left}}
+</style>
+</head>
+<body>
+<header class="top">
+<a class="brand" href="/index.html">SOGOD<small>STAY · EXPERIENCE · LOCAL HELP</small></a>
+<button class="menu-btn" aria-label="Open menu" aria-controls="main-navigation" aria-expanded="false" onclick="const n=document.querySelector('.nav');const o=n.classList.toggle('open');this.setAttribute('aria-expanded',String(o))">☰</button>
+<nav class="nav" id="main-navigation"><a href="/index.html">Home</a><a href="/stay.html">Stay</a><a class="active" href="/experiences.html">Experiences</a><a href="/local-help.html">Local Help</a><a href="/about.html">About</a><a class="btn" href="/request.html">Plan with us →</a></nav>
+</header>
+
+<section class="hero"><div class="wrap hero-grid"><div><div class="eyebrow">Explore Albay · Philippines</div><h1>A little adventure.<br>A lot of Albay.</h1><p>Build a stay around the experiences that matter to you — nature, local food, everyday life, transport and time together. SOGOD helps gather the practical pieces in one place.</p><p>Activities shown here are planning ideas. Availability, operators and final prices are confirmed before any reservation.</p><div class="hero-actions"><a class="btn" href="/request.html">Plan your stay →</a><a class="ghost" href="/stay.html">See our stays</a></div></div><div class="hero-photo" role="img" aria-label="ATV experience in Albay"></div></div></section>
+
+<section class="intro wrap"><div class="eyebrow">What would make your day?</div><h2>Choose your kind of Albay</h2><p>Start with an idea, not a rigid package. We can help combine experiences with transport, food and your stay when the service is available.</p></section>
+
+<main class="wrap grid">
+<article class="card"><div class="photo" style="background-image:url('/assets/images/atv-hero.jpg')"></div><div class="card-body"><div class="kicker">Adventure</div><h3>Mayon ATV adventure</h3><p>A memorable way to experience the landscape around Mayon. Route, operator and availability are confirmed before booking.</p><a href="/request.html">Ask about ATV →</a></div></article>
+<article class="card"><div class="photo" style="background-image:url('/assets/images/beaches-hero.jpg')"></div><div class="card-body"><div class="kicker">Water & nature</div><h3>Beach day</h3><p>Slow the pace down with a day by the water. We can help plan transport and practical details around your stay.</p><a href="/request.html">Plan a beach day →</a></div></article>
+<article class="card"><div class="photo" style="background-image:url('/assets/images/food-culture-hero.jpg')"></div><div class="card-body"><div class="kicker">Food</div><h3>Local food & flavours</h3><p>Discover Bicol flavours through local meals and food experiences, with options confirmed according to your dates.</p><a href="/request.html">Ask about food →</a></div></article>
+<article class="card"><div class="photo" style="background-image:url('/assets/images/boodle-fight-hero.jpg')"></div><div class="card-body"><div class="kicker">Together</div><h3>A table for everyone</h3><p>Planning a family meal or celebration? Tell us what you have in mind and we can help explore suitable local options.</p><a href="/request.html">Plan a gathering →</a></div></article>
+<article class="card"><div class="photo" style="background-image:url('/assets/images/philippines-hero.jpg')"></div><div class="card-body"><div class="kicker">Local life</div><h3>Everyday Albay</h3><p>Make room for the places, people and everyday moments that make a trip feel less like a checklist and more like a visit.</p><a href="/request.html">Tell us what you like →</a></div></article>
+<article class="card"><div class="photo" style="background-image:url('/assets/images/connected-hero.jpg')"></div><div class="card-body"><div class="kicker">Practical help</div><h3>Shopping & errands</h3><p>Need help with practical arrangements during your stay? We can coordinate selected local support where available.</p><a href="/local-help.html">See local help →</a></div></article>
+<article class="card"><div class="photo" style="background-image:url('/assets/images/arrival-hero.jpg')"></div><div class="card-body"><div class="kicker">Arrival</div><h3>Airport pickup</h3><p>Start the stay more smoothly with planned transport from the airport. Vehicle and timing are confirmed for your request.</p><a href="/request.html">Ask about pickup →</a></div></article>
+<article class="card"><div class="photo" style="background-image:url('/assets/images/freedom-hero.jpg')"></div><div class="card-body"><div class="kicker">Freedom</div><h3>Local transport</h3><p>Need a practical way to get around? Tell us your plans and we can help identify suitable local transport options.</p><a href="/request.html">Plan transport →</a></div></article>
+<article class="card"><div class="photo" style="background-image:url('/assets/images/dorian-villa-clean-hero.jpg')"></div><div class="card-body"><div class="kicker">Your base</div><h3>Build a day from Dorian Villa</h3><p>Combine your stay with one or two experiences instead of overplanning. We help keep the day practical and relaxed.</p><a href="/stay.html">Discover Dorian Villa →</a></div></article>
+</main>
+
+<section class="banner"><div class="wrap"><div class="banner-box"><div class="eyebrow">Your time · Your pace</div><h2>Leave room for the sunset.</h2><p>The best days do not need to be packed from morning to night. We can help create a simple plan with enough space to actually enjoy where you are.</p><a class="btn" href="/request.html">Start planning →</a></div></div></section>
+
+<section class="trust"><div class="wrap trust-grid">
+<div class="trust-item"><div class="ico">◇</div><strong>Locally grounded</strong><span>Ideas built around Albay</span></div>
+<div class="trust-item"><div class="ico">✓</div><strong>Confirmed first</strong><span>Availability before reservation</span></div>
+<div class="trust-item"><div class="ico">⌖</div><strong>Practical transport</strong><span>Arrival and local movement</span></div>
+<div class="trust-item"><div class="ico">♡</div><strong>Personal support</strong><span>Help around your actual stay</span></div>
+<div class="trust-item"><div class="ico">○</div><strong>No rigid package</strong><span>Choose what fits your trip</span></div>
+</div></section>
+
+<section class="next"><div class="wrap"><div class="next-head"><div class="eyebrow">Continue with SOGOD</div><h2>Stay, plan and get local help</h2><p>Four simple ways to continue from here.</p></div><div class="next-grid">
+<a class="next-card stays" href="/stay.html"><div><div class="tag">Stay</div><h3>Our Villa & Stays</h3><p>Explore the three planned rental options and opening information.</p></div></a>
+<a class="next-card villa" href="/stay.html"><div><div class="tag">Dorian Villa</div><h3>Your base in Albay</h3><p>See the planned property concept and how it fits into your stay.</p></div></a>
+<a class="next-card help" href="/local-help.html"><div><div class="tag">Local Help</div><h3>More Than a Stay</h3><p>Practical support and selected local assistance.</p></div></a>
+<a class="next-card plan" href="/request.html"><div><div class="tag">Plan with us</div><h3>Tell us what you need</h3><p>Start with your dates, group and the kind of trip you want.</p></div></a>
+</div></div></section>
+
+<footer class="footer"><div class="wrap"><div class="motto">People · Places · A Brighter Tomorrow</div><div class="fcopy">Experience the real Philippines.<br>With local people. For brighter tomorrows.</div></div></footer>
+<script>document.addEventListener('click',e=>{const n=document.querySelector('.nav');if(!e.target.closest('.top')&&n.classList.contains('open'))n.classList.remove('open')})</script>
+</body>
+</html>`;
+
+fs.writeFileSync('experiences.html', html);
+console.log('SOGOD premium Experiences page built');

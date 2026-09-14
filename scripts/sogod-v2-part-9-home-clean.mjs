@@ -40,7 +40,7 @@ a{color:inherit}
 .card{min-height:250px;position:relative;overflow:hidden;border-radius:14px;border:1px solid rgba(255,255,255,.26);box-shadow:0 18px 45px rgba(0,0,0,.25);isolation:isolate}
 .card:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(2,20,16,.94) 0%,rgba(2,20,16,.62) 38%,rgba(2,20,16,.10) 78%)}
 .card.stay{background:url('/assets/images/dorian-villa-clean-hero.jpg') center 52%/cover no-repeat}
-.card.plan{background:url('/assets/images/boodle-fight-hero.jpg') center center/cover no-repeat}
+.card.plan{background:url('/assets/images/atv-hero.jpg') center center/cover no-repeat}
 .card.help{background:url('/assets/images/boodle-fight-hero.jpg') center/cover no-repeat}
 .card-content{position:absolute;left:26px;right:26px;bottom:23px;z-index:2}
 .card .tag{font-size:11px;font-weight:850;letter-spacing:2.4px;color:#f0c15d;text-transform:uppercase;margin-bottom:6px}
