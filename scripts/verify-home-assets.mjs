@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 const required=[
+  'assets/images/dorian-villa-clean-hero.jpg',
   'assets/images/dorian-villa-hero.jpg',
   'assets/images/atv-hero.jpg',
   'assets/images/philippines-hero.jpg',
@@ -16,6 +17,6 @@ for(const p of required){
   }
 }
 const html=fs.readFileSync('index.html','utf8');
-if(!html.includes("/assets/images/hero-home.jpg")) throw new Error('Homepage is not referencing verified Dorian Villa hero');
+if(!html.includes("/assets/images/dorian-villa-clean-hero.jpg")) throw new Error('Homepage is not referencing verified Dorian Villa hero');
 if(!html.includes('Explore Albay')) throw new Error('Homepage experience grid missing');
 console.log('Homepage assets verified');

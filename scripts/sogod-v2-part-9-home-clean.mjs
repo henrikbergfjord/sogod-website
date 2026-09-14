@@ -13,7 +13,7 @@ const html = `<!doctype html>
 html{scroll-behavior:smooth}
 body{margin:0;background:#061f1a;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:inherit}
-.page{min-height:100vh;background:linear-gradient(180deg,rgba(5,31,25,.12),rgba(5,31,25,.08) 55%,rgba(5,31,25,.24)),url('/assets/images/hero-home.jpg') center 48%/cover no-repeat fixed;position:relative}
+.page{min-height:100vh;background:linear-gradient(180deg,rgba(5,31,25,.12),rgba(5,31,25,.08) 55%,rgba(5,31,25,.24)),url('/assets/images/dorian-villa-clean-hero.jpg') center 50%/cover no-repeat fixed;position:relative}
 .page:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(2,20,16,.72) 0%,rgba(2,20,16,.43) 28%,rgba(2,20,16,.08) 55%,rgba(2,20,16,.02) 100%)}
 .shell{position:relative;z-index:2;min-height:100vh;display:flex;flex-direction:column}
 .wrap{width:min(1340px,calc(100% - 64px));margin:auto}
@@ -39,7 +39,7 @@ a{color:inherit}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .card{min-height:250px;position:relative;overflow:hidden;border-radius:14px;border:1px solid rgba(255,255,255,.26);box-shadow:0 18px 45px rgba(0,0,0,.25);isolation:isolate}
 .card:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(2,20,16,.94) 0%,rgba(2,20,16,.62) 38%,rgba(2,20,16,.10) 78%)}
-.card.stay{background:url('/assets/images/hero-home.jpg') center 52%/cover no-repeat}
+.card.stay{background:url('/assets/images/dorian-villa-clean-hero.jpg') center 52%/cover no-repeat}
 .card.plan{background:url('/assets/images/boodle-fight-hero.jpg') center center/cover no-repeat}
 .card.help{background:url('/assets/images/boodle-fight-hero.jpg') center/cover no-repeat}
 .card-content{position:absolute;left:26px;right:26px;bottom:23px;z-index:2}
