@@ -45,6 +45,8 @@ jobs:
         run: node scripts/sogod-v2-part-9-home-clean.mjs
       - name: Add request option thumbnails
         run: node scripts/sogod-v2-part-11-request-thumbnails.mjs
+      - name: Build premium Dorian Villa stay page
+        run: node scripts/sogod-v2-part-12-stay-premium.mjs
       - name: Verify final homepage assets
         run: node scripts/verify-home-assets.mjs
       - name: Validate SOGOD V2 JavaScript
