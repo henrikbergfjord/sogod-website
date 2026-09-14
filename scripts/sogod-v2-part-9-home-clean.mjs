@@ -13,11 +13,11 @@ const html = `<!doctype html>
 html{scroll-behavior:smooth}
 body{margin:0;background:#061f1a;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:inherit}
-.page{min-height:100vh;background:linear-gradient(180deg,rgba(5,31,25,.12),rgba(5,31,25,.08) 55%,rgba(5,31,25,.24)),url('/assets/gallery/photos/sogod-house-concept-evening.jpg') center 48%/cover no-repeat fixed;position:relative}
+.page{min-height:100vh;background:linear-gradient(180deg,rgba(5,31,25,.12),rgba(5,31,25,.08) 55%,rgba(5,31,25,.24)),url('/assets/images/hero-home.jpg') center 48%/cover no-repeat fixed;position:relative}
 .page:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(2,20,16,.72) 0%,rgba(2,20,16,.43) 28%,rgba(2,20,16,.08) 55%,rgba(2,20,16,.02) 100%)}
 .shell{position:relative;z-index:2;min-height:100vh;display:flex;flex-direction:column}
 .wrap{width:min(1340px,calc(100% - 64px));margin:auto}
-.top{height:78px;display:flex;align-items:center;padding:0 max(32px,calc((100vw - 1340px)/2));background:rgba(4,39,31,.70);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+.top{position:relative;z-index:10;height:78px;display:flex;align-items:center;padding:0 max(32px,calc((100vw - 1340px)/2));background:rgba(4,39,31,.70);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
 .brand{font:30px/1 Georgia,"Times New Roman",serif;text-decoration:none;letter-spacing:.3px}
 .brand small{display:block;margin-top:5px;font:7px/1 Arial,sans-serif;letter-spacing:3px;color:#e9bd55}
 .nav{margin-left:auto;display:flex;align-items:center;gap:34px}
@@ -39,8 +39,8 @@ a{color:inherit}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .card{min-height:250px;position:relative;overflow:hidden;border-radius:14px;border:1px solid rgba(255,255,255,.26);box-shadow:0 18px 45px rgba(0,0,0,.25);isolation:isolate}
 .card:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(2,20,16,.94) 0%,rgba(2,20,16,.62) 38%,rgba(2,20,16,.10) 78%)}
-.card.stay{background:url('/assets/gallery/photos/sogod-house-concept-front.jpg') center 52%/cover no-repeat}
-.card.plan{background:url('/assets/images/atv-hero.jpg') center center/cover no-repeat}
+.card.stay{background:url('/assets/images/hero-home.jpg') center 52%/cover no-repeat}
+.card.plan{background:url('/assets/images/boodle-fight-hero.jpg') center center/cover no-repeat}
 .card.help{background:url('/assets/images/boodle-fight-hero.jpg') center/cover no-repeat}
 .card-content{position:absolute;left:26px;right:26px;bottom:23px;z-index:2}
 .card .tag{font-size:11px;font-weight:850;letter-spacing:2.4px;color:#f0c15d;text-transform:uppercase;margin-bottom:6px}
@@ -67,10 +67,10 @@ a{color:inherit}
 <div class="shell">
 <header class="top">
 <a class="brand" href="/index.html">SOGOD<small>STAY · EXPERIENCE · LOCAL HELP</small></a>
-<button class="menu-btn" aria-label="Open menu" onclick="document.querySelector('.nav').classList.toggle('open')">☰</button>
-<nav class="nav"><a class="active" href="/index.html">Home</a><a href="/stay.html">Stay</a><a href="/experiences.html">Experiences</a><a href="/local-help.html">Local Help</a><a href="/about.html">About</a><a class="btn" href="/request.html">Plan with us →</a></nav>
+<button class="menu-btn" aria-label="Open menu" aria-controls="main-navigation" aria-expanded="false" onclick="const open=document.querySelector('.nav').classList.toggle('open');this.setAttribute('aria-expanded',String(open));this.setAttribute('aria-label',open?'Close menu':'Open menu')">☰</button>
+<nav class="nav" id="main-navigation"><a class="active" href="/index.html">Home</a><a href="/stay.html">Stay</a><a href="/experiences.html">Experiences</a><a href="/local-help.html">Local Help</a><a href="/about.html">About</a><a class="btn" href="/request.html">Plan with us →</a></nav>
 </header>
-<section class="hero"><div class="wrap"><div class="hero-grid"><div class="hero-copy"><div class="eyebrow">SOGOD · ALBAY · PHILIPPINES</div><h1>Dorian Villa</h1><h2>Stay · Relax · Belong</h2><p>A private base for discovering Albay — with comfortable stays, local experiences and practical help gathered in one place.</p><div class="hero-actions"><a class="btn" href="/stay.html">Discover our stays →</a><a class="ghost" href="/experiences.html">Plan your stay</a></div></div></div><div class="cards-wrap"><div class="cards">
+<section class="hero"><div class="wrap"><div class="hero-grid"><div class="hero-copy"><div class="eyebrow">SOGOD · ALBAY · PHILIPPINES</div><h1>Dorian Villa</h1><h2>Stay · Relax · Belong</h2><p>A private base for discovering Albay — with comfortable stays, local experiences and practical help gathered in one place.</p><p>Planned property · Concept illustration. Opening dates and availability will be confirmed before booking.</p><div class="hero-actions"><a class="btn" href="/stay.html">Discover our stays →</a><a class="ghost" href="/experiences.html">Plan your stay</a></div></div></div><div class="cards-wrap"><div class="cards">
 <article class="card stay"><div class="card-content"><div class="tag">Stay</div><h3>Our Villa & Stays</h3><p>Three unique rental units are being prepared for guests — modern, comfortable and close to everything in Albay.</p><a href="/stay.html">See our stays →</a></div></article>
 <article class="card plan"><div class="card-content"><div class="tag">Experiences</div><h3>Plan Your Stay</h3><p>Activities, tours, transport, food and unique local experiences — gathered in one place.</p><a href="/experiences.html">Explore Albay →</a></div></article>
 <article class="card help"><div class="card-content"><div class="tag">Local Help</div><h3>More Than a Stay</h3><p>Local support, practical help and trusted contacts — we are here for you.</p><a href="/local-help.html">Get local help →</a></div></article>
@@ -78,7 +78,7 @@ a{color:inherit}
 <section class="benefits-shell"><div class="wrap benefits"><div class="benefit"><div class="bicon">⌂</div><div><strong>Private & Comfortable</strong><span>Villa, apartment or residence</span></div></div><div class="benefit"><div class="bicon">♧</div><div><strong>Family & Group Friendly</strong><span>Space for special moments</span></div></div><div class="benefit"><div class="bicon">♡</div><div><strong>Local Support</strong><span>Practical help before and during your stay</span></div></div><div class="benefit"><div class="bicon">♤</div><div><strong>Authentic Albay</strong><span>Nature, culture, food and local experiences</span></div></div></div></section>
 <footer class="footer"><div class="wrap"><div class="motto">People · Places · A Brighter Tomorrow</div><div class="footer-copy">Experience the real Philippines.<br>With local people. For brighter tomorrows.</div></div></footer>
 </div></div>
-<script>document.addEventListener('click',e=>{const nav=document.querySelector('.nav');if(!e.target.closest('.top')&&nav.classList.contains('open'))nav.classList.remove('open')});</script>
+<script>document.addEventListener('click',e=>{const nav=document.querySelector('.nav');if(!e.target.closest('.top')&&nav.classList.contains('open')){nav.classList.remove('open');const b=document.querySelector('.menu-btn');b.setAttribute('aria-expanded','false');b.setAttribute('aria-label','Open menu')}});</script>
 </body></html>`;
 
 fs.writeFileSync('index.html', html);

@@ -16,6 +16,6 @@ for(const p of required){
   }
 }
 const html=fs.readFileSync('index.html','utf8');
-if(!html.includes("/assets/images/dorian-villa-hero.jpg")) throw new Error('Homepage is not referencing verified Dorian Villa hero');
+if(!html.includes("/assets/images/hero-home.jpg")) throw new Error('Homepage is not referencing verified Dorian Villa hero');
 if(!html.includes('Explore Albay')) throw new Error('Homepage experience grid missing');
 console.log('Homepage assets verified');
