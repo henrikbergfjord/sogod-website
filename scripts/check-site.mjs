@@ -127,6 +127,35 @@ const galleryAdminRoute = staticWebAppConfig.routes?.find((entry) => entry.route
 if (!galleryAdminRoute?.allowedRoles?.includes('gallery') || galleryAdminRoute.allowedRoles.includes('anonymous')) {
     report(staticWebAppConfigPath, '/gallery-admin.html must require the explicit gallery role');
 }
+const galleryNavPages = new Set([
+    'about.html',
+    'arrival.html',
+    'atv.html',
+    'beaches.html',
+    'boodle-fight.html',
+    'connected.html',
+    'experiences.html',
+    'experiences/airport-pickup.html',
+    'experiences/beach-day.html',
+    'experiences/bicol-food.html',
+    'experiences/mayon-atv.html',
+    'food-culture.html',
+    'free-guide.html',
+    'freedom.html',
+    'guide.html',
+    'holiday-planner.html',
+    'index.html',
+    'jeepney.html',
+    'local-guide.html',
+    'local-help.html',
+    'money-guide.html',
+    'pages/contact.html',
+    'philippines.html',
+    'request.html',
+    'stay.html',
+    'tricycle.html',
+    'villa.html'
+]);
 const analyticsPages = new Set([
     'arrival.html',
     'atv.html',
@@ -147,6 +176,36 @@ const analyticsPages = new Set([
 
 for (const filename of htmlFiles) {
     const html = fs.readFileSync(filename, 'utf8');
+    if (galleryNavPages.has(relative(filename))) {
+        const links = [...html.matchAll(/<a\b(?=[^>]*\bhref=["']\/gallery\.html["'])[^>]*>([\s\S]*?)<\/a\s*>/gi)];
+        if (links.length !== 1) {
+            report(filename, 'public site navigation must link to /gallery.html exactly once');
+        } else {
+            const [tag] = links[0];
+            if (
+                !/\bdata-i18n=["']nav\.gallery["']/i.test(tag) ||
+                !/\bdata-i18n-en=["']Gallery["']/i.test(tag) ||
+                !/\bdata-i18n-no=["']Galleri["']/i.test(tag) ||
+                !/\bdata-i18n-tl=["']Galeriya["']/i.test(tag) ||
+                links[0][1].trim() !== 'Gallery'
+            ) {
+                report(filename, 'Gallery navigation label must include English, Norwegian, and Tagalog localization values');
+            }
+        }
+    }
+    if (relative(filename) === 'gallery.html') {
+        const manageLink = html.match(/<a\b(?=[^>]*\bhref=["']\/gallery-admin\.html["'])[^>]*>([\s\S]*?)<\/a\s*>/i);
+        if (
+            !manageLink ||
+            !/\bdata-i18n=["']gallery\.manage["']/i.test(manageLink[0]) ||
+            !/\bdata-i18n-en=["']Manage gallery["']/i.test(manageLink[0]) ||
+            !/\bdata-i18n-no=["']Administrer galleri["']/i.test(manageLink[0]) ||
+            !/\bdata-i18n-tl=["']Pamahalaan ang galeriya["']/i.test(manageLink[0]) ||
+            manageLink[1].trim() !== 'Manage gallery'
+        ) {
+            report(filename, 'public Gallery must have a discreet, localized link to /gallery-admin.html');
+        }
+    }
     const analyticsCount = [...html.matchAll(/<script\b[^>]*src=["']\/assets\/js\/analytics\.js["'][^>]*>/gi)].length;
     const hasAnalytics = analyticsPages.has(relative(filename));
     if (analyticsCount !== Number(hasAnalytics)) {
