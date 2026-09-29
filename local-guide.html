@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sogod Stay — Philippines Travel, Holiday Planner & Local Experiences</title>
+
+    <meta
+        name="description"
+        content="Plan your stay in Albay, Philippines with Sogod Stay. Explore airport pickup, scooter rental, Mayon ATV, jeepneys, tricycles, hidden beaches, local food, Boodle Fight dining and our free Holiday & Travel Planner."
+    >
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <style>
+        /* =========================================================
+           HOMEPAGE REFINEMENT
+           Keeps hero text readable and transport images proportional.
+           ========================================================= */
+
+        .hero {
+            position: relative;
+        }
+
+        .hero-copy {
+            width: min(560px, calc(100% - 48px)) !important;
+            max-width: 560px !important;
+            min-width: 0 !important;
+        }
+
+        .hero-copy h1 {
+            max-width: 520px;
+        }
+
+        .hero-copy > p:not(.eyebrow) {
+            width: auto !important;
+            max-width: 500px !important;
+            white-space: normal !important;
+            word-break: normal !important;
+            overflow-wrap: normal !important;
+            font-size: clamp(16px, 1.15vw, 20px);
+            line-height: 1.6;
+        }
+
+        .hero-copy .actions {
+            flex-wrap: wrap;
+        }
+
+        /* NEW EXPERIENCE / TRANSPORT FEATURE */
+
+        .ride-experience {
+            background: #f3efe7;
+        }
+
+        .ride-heading {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 24px;
+            align-items: end;
+            margin-bottom: 24px;
+        }
+
+        .ride-heading h2 {
+            margin-bottom: 0;
+        }
+
+        .ride-heading .ride-all-link {
+            white-space: nowrap;
+        }
+
+        .ride-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .ride-card {
+            position: relative;
+            display: block;
+            min-width: 0;
+            height: 430px;
+            overflow: hidden;
+            border-radius: 22px;
+            background: #102b22;
+            color: white;
+            text-decoration: none;
+            border: 1px solid rgba(16,43,34,.12);
+            box-shadow: 0 12px 28px rgba(16,43,34,.06);
+        }
+
+        .ride-card img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover !important;
+            object-position: center center;
+            transition: transform .35s ease;
+        }
+
+        .ride-card.atv img {
+            object-position: 52% center;
+        }
+
+        .ride-card.jeepney img {
+            object-position: 52% center;
+        }
+
+        .ride-card.tricycle img {
+            object-position: 50% center;
+        }
+
+        .ride-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(7,28,20,.05) 10%,
+                    rgba(7,28,20,.18) 42%,
+                    rgba(7,28,20,.92) 100%
+                );
+        }
+
+        .ride-card:hover img {
+            transform: scale(1.025);
+        }
+
+        .ride-card-content {
+            position: absolute;
+            z-index: 2;
+            left: 24px;
+            right: 24px;
+            bottom: 24px;
+        }
+
+        .ride-card-label {
+            display: inline-block;
+            margin-bottom: 7px;
+            color: #efb85d;
+            font-size: .68rem;
+            font-weight: 900;
+            letter-spacing: .12em;
+        }
+
+        .ride-card h3 {
+            margin: 0 0 8px;
+            color: white;
+            font-size: clamp(1.8rem, 2.6vw, 2.8rem);
+            line-height: 1;
+        }
+
+        .ride-card p {
+            max-width: 420px;
+            margin: 0 0 15px;
+            color: rgba(255,255,255,.84);
+            line-height: 1.5;
+        }
+
+        .ride-card strong {
+            color: #efb85d;
+        }
+
+        .ride-support-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            margin-top: 18px;
+            overflow: hidden;
+            border-radius: 18px;
+            background: rgba(16,43,34,.12);
+        }
+
+        .ride-support-strip div {
+            display: grid;
+            grid-template-columns: 34px 1fr;
+            gap: 12px;
+            align-items: start;
+            min-height: 92px;
+            padding: 18px;
+            background: rgba(255,255,255,.82);
+        }
+
+        .ride-support-strip span {
+            font-size: 1.45rem;
+        }
+
+        .ride-support-strip strong {
+            display: block;
+            margin-bottom: 3px;
+            font-size: .84rem;
+        }
+
+        .ride-support-strip small {
+            line-height: 1.4;
+            opacity: .7;
+        }
+
+        @media (max-width: 1020px) {
+            .ride-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ride-card {
+                height: 380px;
+            }
+
+            .ride-support-strip {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 700px) {
+            .hero-copy {
+                width: calc(100% - 32px) !important;
+                max-width: none !important;
+            }
+
+            .hero-copy h1,
+            .hero-copy > p:not(.eyebrow) {
+                max-width: 100% !important;
+            }
+
+            .ride-heading {
+                grid-template-columns: 1fr;
+            }
+
+            .ride-card {
+                height: 340px;
+            }
+
+            .ride-support-strip {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* FINAL HERO TEXT FIX — DESKTOP EDGE + MOBILE */
+        body .hero .hero-copy {
+            display: block !important;
+            grid-template-columns: none !important;
+            grid-template-rows: none !important;
+            column-count: 1 !important;
+            width: 560px !important;
+            min-width: 560px !important;
+            max-width: 560px !important;
+        }
+
+        body .hero .hero-copy > p:not(.eyebrow) {
+            display: block !important;
+            float: none !important;
+            position: static !important;
+            box-sizing: border-box !important;
+            width: 500px !important;
+            min-width: 500px !important;
+            max-width: 500px !important;
+            inline-size: 500px !important;
+            max-inline-size: 500px !important;
+            white-space: normal !important;
+            word-break: normal !important;
+            overflow-wrap: normal !important;
+            writing-mode: horizontal-tb !important;
+            text-orientation: mixed !important;
+            font-size: 17px !important;
+            line-height: 1.58 !important;
+        }
+
+        @media (max-width: 760px) {
+            body .hero .hero-copy {
+                left: 7% !important;
+                right: auto !important;
+                width: 86% !important;
+                min-width: 86% !important;
+                max-width: 86% !important;
+            }
+
+            body .hero .hero-copy > p:not(.eyebrow) {
+                width: 100% !important;
+                min-width: 100% !important;
+                max-width: 100% !important;
+                inline-size: 100% !important;
+                max-inline-size: 100% !important;
+                font-size: 16px !important;
+            }
+        }
+
+        .philippines-promo {
+            background: #0d2d22;
+            color: #fff;
+        }
+
+        .philippines-promo .eyebrow {
+            color: #e6b35b;
+        }
+
+        .philippines-promo h2 {
+            color: #fff;
+        }
+
+        .philippines-promo p {
+            color: rgba(255,255,255,.82);
+        }
+
+        .philippines-promo .text-link {
+            color: #efbd68;
+        }
+
+        .money-promo {
+            background: #efe7d9;
+        }
+
+    </style>
+
+<style id="sogod-gallery-header-style">
+.sogod-private-link{color:#e7b55f!important;font-weight:800}
+.sogod-timebar{display:flex;gap:8px;align-items:center;margin-left:auto}
+.sogod-timechip{padding:6px 9px;border:1px solid rgba(255,255,255,.12);border-radius:9px;font-size:.65rem;line-height:1.2;color:rgba(255,255,255,.72);white-space:nowrap}
+.sogod-timechip b{color:#efbd68;margin-right:4px}
+@media(max-width:1080px){.sogod-timebar{display:none}}
+</style>
+
+<link rel="canonical" href="https://www.sogod.no/local-guide.html">
+<meta property="og:url" content="https://www.sogod.no/local-guide.html">
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <a class="brand" href="index.html">
+        SOGOD STAY
+        <span>Experience the Real Philippines</span>
+    </a>
+
+    <nav>
+        <a href="stay.html">Stay</a>
+        <a href="experiences.html">Experiences</a>
+        <a href="#ride-experience">Transport</a>
+        <a href="#location">Location</a>
+        <a href="holiday-planner.html">Holiday Planner</a>
+        <a href="money-guide.html">Money Guide</a>
+        <a href="philippines.html">Philippines</a>
+        <a class="sogod-private-link" href="gallery.html">🔒 Gallery</a>
+        <a href="pages/contact.html">Contact</a>
+        <a class="nav-cta" href="request.html">Plan with us</a>
+    </nav>
+
+<div class="sogod-timebar"><span class="sogod-timechip"><b>SOGOD</b><span id="sogod-header-time">--:--</span></span><span class="sogod-timechip"><b>BERGEN</b><span id="bergen-header-time">--:--</span></span></div></header>
+
+<main><section style="background:#f5f1e7;padding:32px 5%;display:flex;gap:24px;flex-wrap:wrap"><div style="flex:1;min-width:260px"><p class="eyebrow">EXPERIENCES & LOCAL HELP</p><h2>Your day, arranged locally.</h2><p>Island trips, local food, family celebrations and a helping hand. Available to request wherever you stay.</p><a class="btn primary" href="experiences.html">Explore & plan your day →</a></div><div style="flex:1;min-width:260px"><p class="eyebrow">STAY IN SOGOD · FROM 2027</p><h2>A place to feel at home.</h2><p>Our 25 m² apartment or two-storey house. Add airport transfers and scooters to your stay.</p><a class="btn primary" href="stay.html">Explore accommodation →</a></div></section>
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <img
+            src="assets/images/hero-home.jpg"
+            alt="Modern home at Sogod Stay in Albay"
+        >
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-copy">
+
+            <p class="eyebrow">
+                SOGOD · ALBAY · PHILIPPINES
+            </p>
+
+            <h1>
+                Experience the real Philippines.
+            </h1>
+
+            <p>
+                Stay close to local life, meet warm and welcoming people,
+                explore hidden beaches, food and culture — and let us help
+                shape a journey around you.
+            </p>
+
+            <div class="actions">
+
+                <a class="btn primary" href="request.html">
+                    Plan my stay
+                </a>
+
+                <a class="btn ghost" href="experiences.html">
+                    Explore Albay
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="feature-strip">
+
+            <div>
+                <strong>✈</strong>
+                <span>Airport pickup</span>
+            </div>
+
+            <div>
+                <strong>🛏</strong>
+                <span>Comfortable stay</span>
+            </div>
+
+            <div>
+                <strong>🛵</strong>
+                <span>Scooter available</span>
+            </div>
+
+            <div>
+                <strong>📶</strong>
+                <span>Fast fiber internet</span>
+            </div>
+
+            <div>
+                <strong>🌴</strong>
+                <span>Local experiences</span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- STAY -->
+    <section class="section intro" id="stay">
+
+        <p class="eyebrow">
+            STAY · EXPLORE · EXPERIENCE
+        </p>
+
+        <h2>
+            More than a room. A local experience.
+        </h2>
+
+        <p class="lead">
+            Sogod Stay is for curious, adventurous travelers who want more
+            than a party holiday. Come for the culture, the people, the food,
+            the nature and the feeling of discovering places with local help.
+        </p>
+
+        <div class="grid four">
+
+            <article>
+                <span>✈️</span>
+
+                <h3>A warm arrival</h3>
+
+                <p>
+                    We can arrange pickup from Bicol International Airport,
+                    help with arrival logistics and make sure someone is ready
+                    to welcome you.
+                </p>
+
+                <a class="text-link" href="arrival.html">
+                    See how airport pickup works →
+                </a>
+            </article>
+
+            <article>
+                <span>🛵</span>
+
+                <h3>Your own freedom</h3>
+
+                <p>
+                    Explore Albay at your own pace with a scooter,
+                    or ask us to arrange a driver, car or local tricycle.
+                </p>
+
+                <a class="text-link" href="freedom.html">
+                    Explore your freedom →
+                </a>
+            </article>
+
+            <article>
+                <span>📶</span>
+
+                <h3>Connected when you need it</h3>
+
+                <p>
+                    Fast fiber internet means you can work remotely, call home,
+                    use FaceTime and social apps, stream, and upload your travel
+                    memories to OneDrive or your favorite cloud service.
+                </p>
+
+                <a class="text-link" href="connected.html">
+                    See how you stay connected →
+                </a>
+            </article>
+
+            <article>
+                <span>🍽️</span>
+
+                <h3>Try a Boodle Fight</h3>
+
+                <p>
+                    Share a Filipino feast on banana leaves, eat kamayan-style
+                    with your hands and turn one evening into a cultural experience.
+                </p>
+
+                <a class="text-link" href="boodle-fight.html">
+                    Discover the Boodle Fight →
+                </a>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- EXPERIENCES -->
+    <section class="section dark" id="experience">
+
+        <p class="eyebrow">
+            TAILORED EXPERIENCES
+        </p>
+
+        <h2>
+            Tell us what you dream about. We help shape the days.
+        </h2>
+
+        <div class="grid four">
+
+            <article>
+                <span>🏝</span>
+
+                <h3>Hidden beaches</h3>
+
+                <p>
+                    Quiet coastlines, island trips and places outside the
+                    usual tourist trail.
+                </p>
+
+                <a class="text-link" href="beaches.html">
+                    Discover beaches &amp; islands →
+                </a>
+            </article>
+
+            <article>
+                <span>🌋</span>
+
+                <h3>Mayon &amp; Albay</h3>
+
+                <p>
+                    Day trips, viewpoints, nature and regional highlights.
+                </p>
+
+                <a class="text-link" href="atv.html">
+                    Explore Mayon ATV adventure →
+                </a>
+            </article>
+
+            <article>
+                <span>🍲</span>
+
+                <h3>Food &amp; culture</h3>
+
+                <p>
+                    Local restaurants, markets, home-style food and everyday
+                    Filipino life.
+                </p>
+
+                <a class="text-link" href="food-culture.html">
+                    Taste &amp; experience local life →
+                </a>
+            </article>
+
+            <article>
+                <span>🧭</span>
+
+                <h3>With or without a guide</h3>
+
+                <p>
+                    Choose independent exploring, a local guide, day tours
+                    or even overnight adventures.
+                </p>
+
+                <a class="text-link" href="guide.html">
+                    Explore guides &amp; local services →
+                </a>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- RIDE / TRANSPORT FEATURE -->
+    <section class="section ride-experience" id="ride-experience">
+
+        <div class="ride-heading">
+
+            <div>
+                <p class="eyebrow">
+                    LOCAL TRANSPORT &amp; ADVENTURE
+                </p>
+
+                <h2>
+                    Sometimes the ride is part of the experience.
+                </h2>
+            </div>
+
+            <a class="text-link ride-all-link" href="guide.html">
+                View transport &amp; local services →
+            </a>
+
+        </div>
+
+        <div class="ride-grid">
+
+            <a
+                class="ride-card atv"
+                href="atv.html"
+                onclick="if(typeof clarity==='function'){clarity('event','homepage_atv_click')}"
+            >
+                <img
+                    src="assets/images/home-atv.jpg"
+                    alt="Two travelers enjoying an ATV adventure near Mayon Volcano"
+                >
+
+                <div class="ride-card-content">
+                    <span class="ride-card-label">
+                        MAYON ATV ADVENTURE
+                    </span>
+
+                    <h3>
+                        Ride. Explore. Remember.
+                    </h3>
+
+                    <p>
+                        Take two ATVs into the volcanic landscape and turn
+                        Mayon into one of the most exciting days of your stay.
+                    </p>
+
+                    <strong>
+                        Explore ATV adventure →
+                    </strong>
+                </div>
+            </a>
+
+            <a
+                class="ride-card jeepney"
+                href="jeepney.html"
+                onclick="if(typeof clarity==='function'){clarity('event','homepage_jeepney_click')}"
+            >
+                <img
+                    src="assets/images/home-jeepney.jpg"
+                    alt="Colorful traditional Philippine jeepney in Albay"
+                >
+
+                <div class="ride-card-content">
+                    <span class="ride-card-label">
+                        A PHILIPPINE ICON
+                    </span>
+
+                    <h3>
+                        Ride a Jeepney
+                    </h3>
+
+                    <p>
+                        Discover how post-war military jeeps became colorful
+                        rolling symbols of Filipino ingenuity and everyday life.
+                    </p>
+
+                    <strong>
+                        Discover the Jeepney →
+                    </strong>
+                </div>
+            </a>
+
+            <a
+                class="ride-card tricycle"
+                href="tricycle.html"
+                onclick="if(typeof clarity==='function'){clarity('event','homepage_tricycle_click')}"
+            >
+                <img
+                    src="assets/images/home-tricycle.jpg"
+                    alt="Motorized Philippine tricycle on a local road in Albay"
+                >
+
+                <div class="ride-card-content">
+                    <span class="ride-card-label">
+                        EVERYDAY LOCAL TRANSPORT
+                    </span>
+
+                    <h3>
+                        Take a Tricycle
+                    </h3>
+
+                    <p>
+                        Quick, practical and part of daily Filipino life —
+                        ideal for markets, restaurants and nearby trips.
+                    </p>
+
+                    <strong>
+                        Discover the Tricycle →
+                    </strong>
+                </div>
+            </a>
+
+        </div>
+
+        <div class="ride-support-strip">
+
+            <div>
+                <span>⛰️</span>
+                <p>
+                    <strong>Explore Albay</strong>
+                    <small>Beaches, waterfalls, Mayon and unforgettable views.</small>
+                </p>
+            </div>
+
+            <div>
+                <span>🍴</span>
+                <p>
+                    <strong>Taste local flavors</strong>
+                    <small>Boodle Fight, markets and home-style Bicol food.</small>
+                </p>
+            </div>
+
+            <div>
+                <span>📷</span>
+                <p>
+                    <strong>Make memories</strong>
+                    <small>Adventure, relaxation and authentic local moments.</small>
+                </p>
+            </div>
+
+            <div>
+                <span>💬</span>
+                <p>
+                    <strong>We're here to help</strong>
+                    <small>Local support before, during and after your stay.</small>
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- LOCATION -->
+    <section class="section nearby" id="location">
+
+        <p class="eyebrow">
+            LOCATION &amp; EVERYDAY CONVENIENCE
+        </p>
+
+        <h2>
+            Everything you need is only a few minutes away.
+        </h2>
+
+        <p class="lead">
+            Enjoy peaceful surroundings while staying close to restaurants,
+            shopping, banks, transportation and everything you need for a
+            comfortable stay.
+        </p>
+
+        <div class="grid four">
+
+            <article class="place-card">
+                <span>🏙️</span>
+                <h3>Tabaco City</h3>
+                <p>Approx. 6 minutes</p>
+                <a href="https://maps.google.com/?q=Tabaco+City+Albay" target="_blank" rel="noopener">
+                    View on Google Maps →
+                </a>
+            </article>
+
+            <article class="place-card">
+                <span>🍔</span>
+                <h3>McDonald's</h3>
+                <p>Approx. 7 minutes</p>
+                <a href="https://maps.google.com/?q=McDonalds+Tabaco+City" target="_blank" rel="noopener">
+                    View location →
+                </a>
+            </article>
+
+            <article class="place-card">
+                <span>🍗</span>
+                <h3>Jollibee</h3>
+                <p>Approx. 8 minutes</p>
+                <a href="https://maps.google.com/?q=Jollibee+Tabaco+City" target="_blank" rel="noopener">
+                    View location →
+                </a>
+            </article>
+
+            <article class="place-card">
+                <span>🛒</span>
+                <h3>Supermarkets</h3>
+                <p>Several nearby</p>
+                <a href="https://maps.google.com/?q=Supermarket+Tabaco+City" target="_blank" rel="noopener">
+                    Find nearby →
+                </a>
+            </article>
+
+            <article class="place-card">
+                <span>🏦</span>
+                <h3>Banks &amp; ATMs</h3>
+                <p>BDO · BPI · LandBank</p>
+                <a href="https://maps.google.com/?q=ATM+Tabaco+City" target="_blank" rel="noopener">
+                    Find nearby →
+                </a>
+            </article>
+
+            <article class="place-card">
+                <span>💊</span>
+                <h3>Pharmacy</h3>
+                <p>Mercury Drug and local pharmacies</p>
+                <a href="https://maps.google.com/?q=Mercury+Drug+Tabaco+City" target="_blank" rel="noopener">
+                    View location →
+                </a>
+            </article>
+
+            <article class="place-card">
+                <span>✈️</span>
+                <h3>Bicol International Airport</h3>
+                <p>Airport pickup can be arranged</p>
+                <a href="arrival.html">
+                    See airport pickup →
+                </a>
+            </article>
+
+            <article class="place-card">
+                <span>🌋</span>
+                <h3>Mayon Volcano</h3>
+                <p>One of Albay's most iconic experiences</p>
+                <a href="atv.html">
+                    Explore Mayon →
+                </a>
+            </article>
+
+        </div>
+
+        <div class="location-note">
+
+            <h3>
+                Your stay can be completely tailored
+            </h3>
+
+            <p>
+                ✔ Airport pickup &amp; return available<br>
+                ✔ Scooter rental available<br>
+                ✔ Jeepney &amp; tricycle guidance<br>
+                ✔ Local driver or car service<br>
+                ✔ Guided day trips<br>
+                ✔ Overnight adventures<br>
+                ✔ Local recommendations<br>
+                ✔ Stable high-speed fiber internet
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- DISCOVER THE PHILIPPINES -->
+    <section class="section story philippines-promo">
+
+        <div>
+            <p class="eyebrow">
+                DISCOVER THE COUNTRY
+            </p>
+
+            <h2>
+                7,641 islands. More than 112 million people. One extraordinary country.
+            </h2>
+        </div>
+
+        <div>
+            <p>
+                Meet the people, traditions, languages, landscapes and possibilities
+                that make the Philippines far more than a tropical destination —
+                then follow the journey south to Bicol, Albay and Sogod.
+            </p>
+
+            <a
+                class="text-link"
+                href="philippines.html"
+                onclick="if(typeof clarity==='function'){clarity('event','homepage_philippines_click')}"
+            >
+                Discover the Philippines →
+            </a>
+        </div>
+
+    </section>
+
+    <!-- WHO THIS IS FOR -->
+    <section class="section story">
+
+        <div>
+
+            <p class="eyebrow">
+                WHO THIS IS FOR
+            </p>
+
+            <h2>
+                For people who want to feel a place, not just photograph it.
+            </h2>
+
+        </div>
+
+        <div>
+
+            <p>
+                We especially welcome travelers who are genuinely interested
+                in Filipino culture, local communities and meeting people with
+                respect and curiosity.
+
+                If your idea of travel is discovering, learning and sharing —
+                rather than only nightlife — you will feel at home here.
+            </p>
+
+            <a class="text-link" href="pages/contact.html">
+                Tell us who you are and what you hope to experience →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- MONEY & CURRENCY GUIDE -->
+    <section class="section story money-promo">
+
+        <div>
+            <p class="eyebrow">
+                TRAVEL SMART
+            </p>
+
+            <h2>
+                Understand pesos before you arrive.
+            </h2>
+        </div>
+
+        <div>
+            <p>
+                Get practical tips for ATMs, currency conversion, sending money
+                and understanding what everyday things may cost in the Philippines.
+            </p>
+
+            <a
+                class="text-link"
+                href="money-guide.html"
+                onclick="if(typeof clarity==='function'){clarity('event','homepage_money_guide_click')}"
+            >
+                Open the Money &amp; Currency Guide →
+            </a>
+        </div>
+
+    </section>
+
+    <!-- HOLIDAY PLANNER -->
+    <section class="section story holiday-promo">
+
+        <div>
+
+            <p class="eyebrow">
+                FREE TRAVEL TOOL
+            </p>
+
+            <h2>
+                Turn public holidays into longer adventures.
+            </h2>
+
+        </div>
+
+        <div>
+
+            <p>
+                Explore public holidays across Europe and the Philippines,
+                find smart weeks to use fewer vacation days, check destination
+                weather and create a travel plan around the dates that work
+                best for you.
+            </p>
+
+            <a class="text-link" href="holiday-planner.html">
+                Open the Holiday &amp; Travel Planner →
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta">
+
+        <p class="eyebrow">
+            YOUR ADVENTURE STARTS HERE
+        </p>
+
+        <h2>
+            Want us to help plan your stay?
+        </h2>
+
+        <p>
+            Tell us your dates, who is traveling, whether you want airport
+            pickup, scooter rental, day trips, overnight excursions, a guide
+            — and what kind of experience you are looking for.
+        </p>
+
+        <a class="btn primary" href="request.html">
+            Start your request
+        </a>
+
+    </section>
+
+</main>
+
+<footer>
+
+    <div>
+        <strong>Sogod Stay</strong>
+        <br>
+        <span>Sogod · Albay · Philippines</span>
+    </div>
+
+    <div>
+        <a href="holiday-planner.html">Holiday Planner</a>
+        ·
+        <a href="money-guide.html">Money Guide</a>
+        ·
+        <a href="philippines.html">Philippines</a>
+        ·
+        <a href="atv.html">Mayon ATV</a>
+        ·
+        <a href="jeepney.html">Jeepney</a>
+        ·
+        <a href="tricycle.html">Tricycle</a>
+        ·
+        <a href="beaches.html">Beaches</a>
+        ·
+        <a href="food-culture.html">Food &amp; Culture</a>
+        ·
+        <a href="boodle-fight.html">Boodle Fight</a>
+        ·
+        <a href="pages/contact.html">Contact</a>
+        ·
+        <a href="request.html">Booking request</a>
+    </div>
+
+    <div>
+        Developed and designed by Henrik Bergfjord
+    </div>
+
+</footer>
+
+
+<script id="sogod-gallery-clock-script">
+(function(){
+ function tick(){
+  const n=new Date(),o={hour:'2-digit',minute:'2-digit',hour12:false};
+  const a=document.getElementById('sogod-header-time'),b=document.getElementById('bergen-header-time');
+  if(a)a.textContent=new Intl.DateTimeFormat('en-GB',{...o,timeZone:'Asia/Manila'}).format(n);
+  if(b)b.textContent=new Intl.DateTimeFormat('en-GB',{...o,timeZone:'Europe/Oslo'}).format(n);
+ }
+ tick();setInterval(tick,30000);
+})();
+</script>
+
+</body>
+</html>

@@ -10,7 +10,26 @@ on:
       - main
 
 jobs:
+  validate:
+    if: github.event_name != 'pull_request' || github.event.action != 'closed'
+    runs-on: ubuntu-latest
+    name: Validate source
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: api/package-lock.json
+      - name: Install API test dependencies
+        run: npm ci --prefix api
+      - name: Run API tests
+        run: npm test --prefix api
+      - name: Check pages, links, analytics policy, and JavaScript
+        run: node scripts/check-site.mjs
+
   build_and_deploy_job:
+    needs: validate
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build and Deploy Job
@@ -19,50 +38,6 @@ jobs:
         with:
           submodules: true
           lfs: false
-      - name: Materialize SOGOD V2 part 1
-        run: node scripts/sogod-v2-part-1.mjs
-      - name: Materialize SOGOD V2 part 2
-        run: node scripts/sogod-v2-part-2.mjs
-      - name: Materialize SOGOD V2 part 3A1
-        run: node scripts/sogod-v2-part-3a1.mjs
-      - name: Materialize SOGOD V2 part 3A2
-        run: node scripts/sogod-v2-part-3a2.mjs
-      - name: Materialize SOGOD V2 part 3B
-        run: node scripts/sogod-v2-part-3b.mjs
-      - name: Materialize SOGOD V2 part 4
-        run: node scripts/sogod-v2-part-4.mjs
-      - name: Materialize SOGOD V2 part 5A
-        run: node scripts/sogod-v2-part-5a.mjs
-      - name: Materialize SOGOD V2 Dorian Villa presentation
-        run: node scripts/sogod-v2-part-6c.mjs
-      - name: Verify Dorian Villa front image
-        run: node scripts/sogod-v2-part-6d.mjs
-      - name: Apply SOGOD Villa and experience visuals
-        run: node scripts/sogod-v2-part-7-visuals.mjs
-      - name: Build approved Dorian Villa homepage
-        run: node scripts/sogod-v2-part-8-home.mjs
-      - name: Build clean final SOGOD homepage
-        run: node scripts/sogod-v2-part-9-home-clean.mjs
-      - name: Add request option thumbnails
-        run: node scripts/sogod-v2-part-11-request-thumbnails.mjs
-      - name: Build premium Dorian Villa stay page
-        run: node scripts/sogod-v2-part-12-stay-premium.mjs
-      - name: Build premium SOGOD Experiences page
-        run: node scripts/sogod-v2-part-13-experiences-premium.mjs
-      - name: Build SOGOD experience detail pages
-        run: node scripts/sogod-v2-part-14-experience-details.mjs
-      - name: Verify final homepage assets
-        run: node scripts/verify-home-assets.mjs
-      - name: Validate SOGOD V2 JavaScript
-        run: |
-          node --check api/src/domain.js
-          node --check api/src/index.js
-          node --check api/src/proposals.js
-          node --check api/src/store.js
-          node --check assets/js/frontdesk.js
-          node --check assets/js/proposal-editor.js
-          node --check assets/js/proposal.js
-          node --check assets/js/request.js
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
