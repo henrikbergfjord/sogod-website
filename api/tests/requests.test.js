@@ -6,6 +6,7 @@ import {PGlite} from '@electric-sql/pglite';
 import {validate,date,principal,galleryManager} from '../src/domain.js';
 import {validateGalleryFilename,sniffGalleryImage,parseYouTubeUrl,MAX_IMAGE_BYTES} from '../src/gallery-validation.js';
 import {optimizeGalleryPhoto} from '../src/gallery-processing.js';
+import {readManifest} from '../src/gallery.js';
 import sharp from 'sharp';
 import {createRequest,updateRequest} from '../src/store.js';
 import {createProposal,shareProposal,readProposal,acceptProposal,proposalInput} from '../src/proposals.js';
@@ -18,6 +19,20 @@ test('validation rejects malformed dates, overcapacity and invalid items; three 
 test('only Microsoft staff roles are authorised',()=>{const encode=p=>Buffer.from(JSON.stringify(p)).toString('base64');assert.equal(principal(encode({identityProvider:'aad',userId:'1',userRoles:['authenticated']})),null);assert.equal(principal(encode({identityProvider:'github',userId:'1',userRoles:['admin']})),null);assert.ok(principal(encode({identityProvider:'aad',userId:'1',userRoles:['frontdesk']})));assert.equal(principal('invalid'),null)});
 test('only explicitly assigned Microsoft gallery role can manage media',()=>{const encode=p=>Buffer.from(JSON.stringify(p)).toString('base64');assert.ok(galleryManager(encode({identityProvider:'aad',userId:'1',userRoles:['gallery']})));for(const roles of [['authenticated'],['admin'],['frontdesk'],['admin','authenticated']])assert.equal(galleryManager(encode({identityProvider:'aad',userId:'1',userRoles:roles})),null);assert.equal(galleryManager(encode({identityProvider:'github',userId:'1',userRoles:['gallery']})),null)});
 test('gallery uploads allow only simple image filenames with matching file signatures',()=>{assert.equal(MAX_IMAGE_BYTES,25*1024*1024);assert.equal(validateGalleryFilename('Family day.jpg').extension,'jpg');for(const name of ['../photo.jpg','photo.svg','movie.mp4','photo.jpg.html',''])assert.throws(()=>validateGalleryFilename(name),e=>e.status===400);assert.equal(sniffGalleryImage(Buffer.from([0xff,0xd8,0xff,0]),'jpg').mime,'image/jpeg');assert.throws(()=>sniffGalleryImage(Buffer.from('<svg/>'),'svg'),e=>e.status===400);assert.throws(()=>sniffGalleryImage(Buffer.from('not an image'),'png'),e=>e.status===400)});
+test('gallery manifest download uses the validated blob size and enforces the maximum',async()=>{
+ const data=Buffer.from(JSON.stringify([{id:'photo-1'}]));let requestedCount;
+ const blob={exists:async()=>true,getProperties:async()=>({contentLength:data.length,etag:'test-etag'}),downloadToBuffer:async(offset,count)=>{assert.equal(offset,0);requestedCount=count;if(count>data.length)throw new Error('Requested byte count exceeds blob size.');return Buffer.from(data)}};
+ const store={getBlockBlobClient:name=>{assert.equal(name,'gallery-manifest.json');return blob}};
+ const manifest=await readManifest(store);
+ assert.equal(requestedCount,data.length);
+ assert.deepEqual(manifest.items,[{id:'photo-1'}]);
+ assert.equal(manifest.etag,'test-etag');
+
+ requestedCount=undefined;
+ const oversizedStore={getBlockBlobClient:()=>({...blob,getProperties:async()=>({contentLength:1024*1024+1})})};
+ await assert.rejects(readManifest(oversizedStore),error=>error.status===503&&error.message==='Gallery manifest exceeds its size limit.');
+ assert.equal(requestedCount,undefined);
+});
 test('YouTube URL validation accepts standard links and rejects spoofed hosts',()=>{const id='dQw4w9WgXcQ';for(const url of [`https://www.youtube.com/watch?v=${id}`,`https://youtu.be/${id}`,`https://youtube.com/shorts/${id}`,`https://www.youtube-nocookie.com/embed/${id}`])assert.equal(parseYouTubeUrl(url),id);for(const url of [`https://youtube.com.attacker.invalid/watch?v=${id}`,`javascript://youtube.com/watch?v=${id}`,`https://youtu.be/not-an-id`,`https://example.com/watch?v=${id}`])assert.throws(()=>parseYouTubeUrl(url),e=>e.status===400)});
 test('photo optimization applies orientation, strips metadata, makes a preview and never upscales',async()=>{const large=await sharp({create:{width:320,height:180,channels:3,background:'#42705a'}}).jpeg().withMetadata({orientation:6}).toBuffer();const optimized=await optimizeGalleryPhoto(large);const full=await sharp(optimized.full).metadata(),preview=await sharp(optimized.preview).metadata();assert.equal(full.format,'webp');assert.equal(full.width,180);assert.equal(full.height,320);assert.equal(full.orientation,undefined);assert.equal(full.exif,undefined);assert.ok(preview.width<=480&&preview.height<=480);const small=await sharp({create:{width:64,height:32,channels:3,background:'#42705a'}}).png().toBuffer();const smallResult=await optimizeGalleryPhoto(small),smallMeta=await sharp(smallResult.full).metadata();assert.equal(smallMeta.width,64);assert.equal(smallMeta.height,32)});
 test('proposal amounts reject fractions, negatives and overflow',()=>{const p=offer();assert.equal(proposalInput(p).total,350150);p.lines[0].unitCostMinor=-1;assert.throws(()=>proposalInput(p));p.lines[0].unitCostMinor=.5;assert.throws(()=>proposalInput(p));p.lines[0].unitCostMinor=100000000;assert.throws(()=>proposalInput(p))});
