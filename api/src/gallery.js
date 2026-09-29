@@ -32,12 +32,12 @@ function origin(req){if(!process.env.PUBLIC_ORIGIN||req.headers.get('origin')!==
 function json(status,jsonBody){return {status,jsonBody,headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}}}
 function safe(fn){return async(req,ctx)=>{try{return await fn(req)}catch(e){if(!(e instanceof Problem))ctx.error('Gallery API error',e.code||e.name);return json(e.status||503,{error:e.status?e.message:'Gallery storage is temporarily unavailable.'})}}}
 
-async function readManifest(store){
+export async function readManifest(store){
  const blob=store.getBlockBlobClient('gallery-manifest.json');
  if(!await blob.exists())return {blob,items:[],etag:null};
  const props=await blob.getProperties();
  if((props.contentLength||0)>maxManifestBytes)throw new Problem(503,'Gallery manifest exceeds its size limit.');
- const data=await blob.downloadToBuffer(0,maxManifestBytes);
+ const data=await blob.downloadToBuffer(0,props.contentLength);
  let items;
  try{items=JSON.parse(data.toString('utf8'))}catch{throw new Problem(503,'Gallery manifest is invalid.')}
  if(!Array.isArray(items))throw new Problem(503,'Gallery manifest is invalid.');
