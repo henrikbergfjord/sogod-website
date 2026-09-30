@@ -38,7 +38,7 @@
   </section>
 </main>
 <div class="lightbox" id="lightbox" hidden><button id="lightboxClose">×</button></div>
-<footer><span>Sogod Stay · Sogod, Albay, Philippines</span><a class="gallery-admin-link" href="/gallery-admin.html" data-i18n="gallery.manage" data-i18n-en="Manage gallery" data-i18n-no="Administrer galleri" data-i18n-tl="Pamahalaan ang galeriya">Manage gallery</a><span>Public gallery</span></footer>
+<footer><span>Sogod Stay · Sogod, Albay, Philippines</span><a class="gallery-admin-link" href="/.auth/login/aad?post_login_redirect_uri=/gallery-admin.html" data-i18n="gallery.manage" data-i18n-en="Manage gallery" data-i18n-no="Administrer galleri" data-i18n-tl="Pamahalaan ang galeriya">Manage gallery</a><span>Public gallery</span></footer>
 <script>
 document.querySelectorAll("[data-tab]").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));btn.classList.add("active");document.querySelectorAll(".panel").forEach(x=>x.hidden=true);document.getElementById(btn.dataset.tab).hidden=false;}));
 const lb=document.getElementById("lightbox");let lbi;
