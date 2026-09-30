@@ -194,7 +194,7 @@ for (const filename of htmlFiles) {
         }
     }
     if (relative(filename) === 'gallery.html') {
-        const manageLink = html.match(/<a\b(?=[^>]*\bhref=["']\/gallery-admin\.html["'])[^>]*>([\s\S]*?)<\/a\s*>/i);
+        const manageLink = html.match(/<a\b(?=[^>]*\bhref=["']\/\.auth\/login\/aad\?post_login_redirect_uri=\/gallery-admin\.html["'])[^>]*>([\s\S]*?)<\/a\s*>/i);
         if (
             !manageLink ||
             !/\bdata-i18n=["']gallery\.manage["']/i.test(manageLink[0]) ||
@@ -203,7 +203,7 @@ for (const filename of htmlFiles) {
             !/\bdata-i18n-tl=["']Pamahalaan ang galeriya["']/i.test(manageLink[0]) ||
             manageLink[1].trim() !== 'Manage gallery'
         ) {
-            report(filename, 'public Gallery must have a discreet, localized link to /gallery-admin.html');
+            report(filename, 'public Gallery must have a discreet, localized Microsoft login link to /gallery-admin.html');
         }
     }
     const analyticsCount = [...html.matchAll(/<script\b[^>]*src=["']\/assets\/js\/analytics\.js["'][^>]*>/gi)].length;
